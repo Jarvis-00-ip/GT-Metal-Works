@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progetti | G.T. Metalworks</title>
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <style>
+        .filter-controls {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <section class="section-sm" style="padding-top: 120px;">
+        <div class="container text-center">
+            <h1>Le Nostre Creazioni</h1>
+            <p class="text-body">Una selezione dei nostri lavori più significativi.</p>
+        </div>
+    </section>
+
+    <section class="container" style="padding-bottom: 80px;">
+        <!-- Filters -->
+        <div class="filter-controls">
+            <button class="btn btn-primary filter-tab active" data-filter="all">Tutti</button>
+            <button class="btn btn-outline filter-tab" data-filter="classiche">Classiche</button>
+            <button class="btn btn-outline filter-tab" data-filter="moderne">Moderne</button>
+            <button class="btn btn-outline filter-tab" data-filter="pista">Pista</button>
+            <button class="btn btn-outline filter-tab" data-filter="componenti">Componenti</button>
+        </div>
+
+        <!-- Grid -->
+        <div class="grid-3" id="projects-grid">
+
+            <!-- Ferrari -->
+            <div class="project-card" data-category="classiche restauro">
+                <img src="../../assets/img/ferrari.jpg" alt="Ferrari V8" class="project-img">
+                <div class="project-overlay">
+                    <h3 class="project-title" style="color:white; font-size:1.2rem;">Ferrari 308 DTS</h3>
+                </div>
+                <div style="display:none;"
+                    data-details="Restauro completo conservativo. Revisione motore 8 cilindri, iniezione K-Jetronic, ripristino impianto elettrico originale e trattamento interni in pelle Connolly.">
+                </div>
+            </div>
+
+            <!-- Mitsubishi -->
+            <div class="project-card" data-category="moderne pista">
+                <img src="../../assets/img/mitsubishi.jpg" alt="Lancer Evo" class="project-img">
+                <div class="project-overlay">
+                    <h3 class="project-title" style="color:white; font-size:1.2rem;">Lancer Evo IX</h3>
+                </div>
+                <div style="display:none;"
+                    data-details="Preparazione Track Day. Motore forgiato 2.3L, turbo maggiorato, assetto a ghiera regolabile, rollbar saldato certificato FIA. 450cv alla ruota.">
+                </div>
+            </div>
+
+            <!-- Corvette -->
+            <div class="project-card" data-category="moderne">
+                <img src="../../assets/img/corvette.jpg" alt="Corvette Stingray" class="project-img">
+                <div class="project-overlay">
+                    <h3 class="project-title" style="color:white; font-size:1.2rem;">Corvette Stingray</h3>
+                </div>
+                <div style="display:none;"
+                    data-details="Installazione Kit Compressore Volumetrico. Mappatura dedicata su banco, scarico completo in acciaio inox valvolare.">
+                </div>
+            </div>
+
+            <!-- Peugeot -->
+            <div class="project-card" data-category="classiche pista">
+                <img src="../../assets/img/pejout.jpg" alt="Peugeot 205" class="project-img">
+                <div class="project-overlay">
+                    <h3 class="project-title" style="color:white; font-size:1.2rem;">205 GTI Rally</h3>
+                </div>
+                <div style="display:none;"
+                    data-details="Allestimento Gruppo A storico. Scocca rinforzata, motore 1.9 portato a 160cv aspirati, cambio ravvicinato autobloccante.">
+                </div>
+            </div>
+
+            <!-- Engine Block -->
+            <div class="project-card" data-category="componenti">
+                <img src="../../assets/img/blocco motore1.jpg" alt="Blocco Motore" class="project-img">
+                <div class="project-overlay">
+                    <h3 class="project-title" style="color:white; font-size:1.2rem;">Lavorazione CNC</h3>
+                </div>
+                <div style="display:none;"
+                    data-details="Spianatura e alesatura blocco motore V6 con macchinari a controllo numerico. Tolleranze centesimali per applicazione biturbo.">
+                </div>
+            </div>
+
+            <!-- Custom Parts -->
+            <div class="project-card" data-category="componenti">
+                <img src="../../assets/img/blocco motore3.jpg" alt="Collettori" class="project-img">
+                <div class="project-overlay">
+                    <h3 class="project-title" style="color:white; font-size:1.2rem;">Collettori Inconel</h3>
+                </div>
+                <div style="display:none;"
+                    data-details="Prototipazione e saldatura manuale di collettori di scarico in Inconel 625 per resistenza estreme temperature.">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal" aria-hidden="true">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Chiudi">&times;</button>
+            <div class="modal-img-container">
+                <img src="" alt="" class="modal-img">
+            </div>
+            <div class="modal-body">
+                <h2 class="modal-title">Titolo Progetto</h2>
+                <hr style="border: 0; border-top: 1px solid var(--border-subtle); margin: 16px 0;">
+                <p class="modal-desc text-body">Descrizione...</p>
+                <div style="margin-top: 32px;">
+                    <a href="../contact/index.html" class="btn btn-primary" style="font-size: 0.9rem;">Richiedi Info
+                        Simili</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../../assets/js/partials.js"></script>
+    <script src="../../assets/js/nav-scroll.js"></script>
+    <script src="../../assets/js/main.js"></script>
+    <script>initPartials('../../');</script>
+</body>
+
+</html>

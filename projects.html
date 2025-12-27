@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | G.T.Metalworks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <header id="header-placeholder"></header>
+
+    <div class="section" style="padding-top: 150px; padding-bottom: 60px; background: var(--bg-card);">
+        <div class="container text-center">
+            <h1>Our <span class="accent-text">Projects</span></h1>
+            <p class="subheadline">A showcase of our finest work.</p>
+        </div>
+    </div>
+
+    <section class="section container">
+        <div class="filter-btns">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="modern">Modern</button>
+            <button class="filter-btn" data-filter="classic">Classic</button>
+            <button class="filter-btn" data-filter="fabrication">Fabrication</button>
+            <button class="filter-btn" data-filter="track">Track</button>
+        </div>
+
+        <div class="projects-grid">
+            <!-- Modern / Track -->
+            <div class="project-card" data-category="modern track">
+                <img src="assets/img/mitsubishi.jpg" alt="Mitsubishi Evo">
+                <div class="project-info"
+                    data-desc="Complete track preparation for this Evo IX, including roll cage fabrication, suspension tuning, and a 450hp engine build.">
+                    <h3>Mitsubishi Evo IX</h3>
+                    <span class="project-tags">Modern / Track / Tuning</span>
+                </div>
+            </div>
+
+            <!-- Classic -->
+            <div class="project-card" data-category="classic restoration">
+                <img src="assets/img/ferrari.jpg" alt="Classic Ferrari">
+                <div class="project-info"
+                    data-desc="Nut-and-bolt restoration of this classic V8 Ferrari. Paint correction, engine rebuild, and interior refreshment.">
+                    <h3>Ferrari 308 Restoration</h3>
+                    <span class="project-tags">Classic / Restoration</span>
+                </div>
+            </div>
+
+            <!-- Fabrication / Engine -->
+            <div class="project-card" data-category="fabrication engine">
+                <img src="assets/img/blocco motore1.jpg" alt="Engine Block Machining">
+                <div class="project-info"
+                    data-desc="Precision machining and blueprinting of a high-performance engine block. preparation for forced induction.">
+                    <h3>Engine Blueprinting</h3>
+                    <span class="project-tags">Fabrication / Engine</span>
+                </div>
+            </div>
+
+            <!-- Classic / Rally -->
+            <div class="project-card" data-category="classic track">
+                <img src="assets/img/pejout.jpg" alt="Peugeot Rally">
+                <div class="project-info"
+                    data-desc="Historic rally preparation for this Peugeot 205 GTI. Reinforced chassis and period-correct modifications.">
+                    <h3>Peugeot 205 GTI Rally</h3>
+                    <span class="project-tags">Classic / Rally</span>
+                </div>
+            </div>
+
+            <!-- Modern / Tuning -->
+            <div class="project-card" data-category="modern tuning">
+                <img src="assets/img/corvette.jpg" alt="Corvette Stingray">
+                <div class="project-info"
+                    data-desc="Supercharger installation and dyno tuning for this Corvette Stingray, pushing over 700hp.">
+                    <h3>Corvette C7 Supercharged</h3>
+                    <span class="project-tags">Modern / Tuning</span>
+                </div>
+            </div>
+
+            <!-- Fabrication -->
+            <div class="project-card" data-category="fabrication">
+                <img src="assets/img/blocco motore3.jpg" alt="Custom Parts">
+                <div class="project-info"
+                    data-desc="Custom fabricated aluminum intake manifold utilizing CNC machined flanges and hand-welded runners.">
+                    <h3>Custom Intake Manifold</h3>
+                    <span class="project-tags">Fabrication / Welding</span>
+                </div>
+            </div>
+            <!-- Fabrication -->
+            <div class="project-card" data-category="fabrication">
+                <img src="assets/img/pezzimotore.jpg" alt="Engine Internals">
+                <div class="project-info" data-desc="Forged internals upgrade for a high-boost application.">
+                    <h3>Forged Rebuild</h3>
+                    <span class="project-tags">Engine / Performance</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-body">
+                <div class="modal-img">
+                    <img src="" alt="Project Detail">
+                </div>
+                <div class="modal-text">
+                    <h2>Project Name</h2>
+                    <p>Project description goes here.</p>
+                    <a href="contact.html" class="btn btn-primary">Enquire About This</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-placeholder"></footer>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
