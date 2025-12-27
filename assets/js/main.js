@@ -8,6 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
     initTestimonials();
 });
 
+// Wait for partials to be injected
+document.addEventListener('partialsLoaded', () => {
+    initThemeToggle();
+});
+
 function initProjects() {
     const filterTabs = document.querySelectorAll('.filter-tab');
     const projectCards = document.querySelectorAll('.project-card');
@@ -95,7 +100,7 @@ function initTestimonials() {
     const track = document.querySelector(".carousel-track");
     const slides = Array.from(track.children);
     const indicatorsContainer = document.querySelector(".carousel-indicators");
-    
+
     if (!track || slides.length === 0) return;
 
     // Create indicators
@@ -103,17 +108,17 @@ function initTestimonials() {
         const dot = document.createElement("button");
         dot.classList.add("carousel-dot");
         dot.setAttribute("aria-label", `Vai alla recensione ${index + 1}`);
-        if(index === 0) dot.classList.add("active");
-        
+        if (index === 0) dot.classList.add("active");
+
         dot.addEventListener("click", () => {
             goToSlide(index);
             stopAutoPlay();
             startAutoPlay();
         });
-        
+
         indicatorsContainer.appendChild(dot);
     });
-    
+
     const dots = Array.from(indicatorsContainer.children);
     let currentIndex = 0;
     let autoPlayTimer;
@@ -127,7 +132,7 @@ function initTestimonials() {
 
     function nextSlide() {
         let index = currentIndex + 1;
-        if(index >= slides.length) index = 0;
+        if (index >= slides.length) index = 0;
         goToSlide(index);
     }
 
@@ -146,4 +151,37 @@ function initTestimonials() {
 
     // Initial Start
     startAutoPlay();
+}
+
+/**
+ * THEME TOGGLE
+ * Dark/Light mode with localStorage persistence
+ */
+function initThemeToggle() {
+    const toggleBtn = document.getElementById('theme-toggle');
+    if (!toggleBtn) return;
+
+    const icon = toggleBtn.querySelector('.icon');
+    const body = document.body;
+
+    // Check local storage
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'light') {
+        body.classList.add('light-mode');
+        icon.textContent = '☀';
+    } else {
+        icon.textContent = '🌙';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+        body.classList.toggle('light-mode');
+
+        if (body.classList.contains('light-mode')) {
+            localStorage.setItem('theme', 'light');
+            icon.textContent = '☀';
+        } else {
+            localStorage.setItem('theme', 'dark');
+            icon.textContent = '🌙';
+        }
+    });
 }

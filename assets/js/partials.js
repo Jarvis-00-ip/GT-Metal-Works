@@ -9,44 +9,50 @@ const NAV_HTML = `
         <div class="container nav-container">
             <a href="{{root}}index.html" class="brand">G.T.METALWORKS</a>
             
-            <button class="menu-toggle" aria-label="Toggle Menu">
-                <span class="bars">☰</span>
-            </button>
-
             <!-- Desktop Menu -->
             <ul class="nav-menu">
                 <li><a href="{{root}}index.html" class="nav-item">Home</a></li>
-                <li><a href="{{root}}pages/services/index.html" class="nav-item">Servizi</a></li>
+                <li><a href="{{root}}pages/services/services.html" class="nav-item">Servizi</a></li>
                 
                 <li class="nav-item" tabindex="0">
                     Specialità ▾
                     <div class="dropdown-menu">
-                        <a href="{{root}}pages/specialties/classic-restorations/index.html" class="dropdown-link">Restaurazioni Classiche</a>
-                        <a href="{{root}}pages/specialties/modern-performance/index.html" class="dropdown-link">Performance Moderne</a>
-                        <a href="{{root}}pages/specialties/diagnostics-electronics/index.html" class="dropdown-link">Diagnosi & Elettronica</a>
+                        <a href="{{root}}pages/specialties/classic-restorations/classic-restorations.html" class="dropdown-link">Restauri Classici</a>
+                        <a href="{{root}}pages/specialties/modern-performance/modern-performance.html" class="dropdown-link">Performance Moderne</a>
+                        <a href="{{root}}pages/specialties/diagnostics-electronics/diagnostics-electronics.html" class="dropdown-link">Diagnostica & Elettronica</a>
                     </div>
                 </li>
 
-                <li><a href="{{root}}pages/projects/index.html" class="nav-item">Progetti</a></li>
-                <li><a href="{{root}}pages/about/index.html" class="nav-item">Chi Siamo</a></li>
-                <li><a href="{{root}}pages/contact/index.html" class="nav-item">Contatti</a></li>
+                <li><a href="{{root}}pages/projects/projects.html" class="nav-item">Progetti</a></li>
+                <li><a href="{{root}}pages/about/about.html" class="nav-item">Chi Siamo</a></li>
+                <li><a href="{{root}}pages/contact/contact.html" class="nav-item">Contatti</a></li>
             </ul>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark/Light Mode">
+                    <span class="icon">☀</span>
+                </button>
+                <a href="{{root}}pages/contact/contact.html" class="btn btn-accent btn-sm header-cta">Richiedi Preventivo</a>
+                <button class="menu-toggle" aria-label="Toggle Menu">
+                    <span class="bars">☰</span>
+                </button>
+            </div>
         </div>
     </nav>
 
     <!-- Mobile Menu Overlay -->
     <div class="mobile-nav-overlay" id="mobile-nav">
         <a href="{{root}}index.html" class="mobile-link">Home</a>
-        <a href="{{root}}pages/services/index.html" class="mobile-link">Servizi</a>
+        <a href="{{root}}pages/services/services.html" class="mobile-link">Servizi</a>
         
         <div class="mobile-link">Specialità</div>
-        <a href="{{root}}pages/specialties/classic-restorations/index.html" class="mobile-sublink">Restaurazioni Classiche</a>
-        <a href="{{root}}pages/specialties/modern-performance/index.html" class="mobile-sublink">Performance Moderne</a>
-        <a href="{{root}}pages/specialties/diagnostics-electronics/index.html" class="mobile-sublink">Diagnosi & Elettronica</a>
+        <a href="{{root}}pages/specialties/classic-restorations/classic-restorations.html" class="mobile-sublink">Restauri Classici</a>
+        <a href="{{root}}pages/specialties/modern-performance/modern-performance.html" class="mobile-sublink">Performance Moderne</a>
+        <a href="{{root}}pages/specialties/diagnostics-electronics/diagnostics-electronics.html" class="mobile-sublink">Diagnostica & Elettronica</a>
 
-        <a href="{{root}}pages/projects/index.html" class="mobile-link">Progetti</a>
-        <a href="{{root}}pages/about/index.html" class="mobile-link">Chi Siamo</a>
-        <a href="{{root}}pages/contact/index.html" class="mobile-link">Contatti</a>
+        <a href="{{root}}pages/projects/projects.html" class="mobile-link">Progetti</a>
+        <a href="{{root}}pages/about/about.html" class="mobile-link">Chi Siamo</a>
+        <a href="{{root}}pages/contact/contact.html" class="mobile-link">Contatti</a>
     </div>
 `;
 
@@ -61,9 +67,11 @@ const FOOTER_HTML = `
                 <div>
                     <h4>Link Rapidi</h4>
                     <ul>
-                        <li><a href="{{root}}pages/services/index.html" class="text-body">Servizi</a></li>
-                        <li><a href="{{root}}pages/projects/index.html" class="text-body">Progetti</a></li>
-                        <li><a href="{{root}}pages/about/index.html" class="text-body">Chi Siamo</a></li>
+                        <li><a href="{{root}}pages/services/services.html" class="text-body">Servizi</a></li>
+                        <li><a href="{{root}}pages/projects/projects.html" class="text-body">Progetti</a></li>
+                        <li><a href="{{root}}pages/about/about.html" class="text-body">Chi Siamo</a></li>
+                        <li><a href="{{root}}pages/contact/contact.html" class="text-body">Contatti</a></li>
+                        <li><a href="{{root}}pages/privacy/privacy.html" class="text-body">Privacy Policy</a></li>
                     </ul>
                 </div>
                 <div>
@@ -84,7 +92,7 @@ const FOOTER_HTML = `
             
             <div class="footer-bottom">
                 <span>&copy; 2024 G.T.Metalworks. P.IVA 01234567890</span>
-                <a href="{{root}}pages/privacy/index.html" class="text-muted">Privacy Policy</a>
+                <a href="{{root}}pages/privacy/privacy.html" class="text-muted">Privacy Policy</a>
             </div>
             <div class="tricolore-strip"></div>
         </div>
@@ -135,6 +143,9 @@ async function initPartials(rootPath = './') {
 
     // Initialize Nav Interactions after injection
     initMobileNav();
+
+    // Dispatch event to signal partials are loaded
+    document.dispatchEvent(new Event('partialsLoaded'));
 }
 
 function initMobileNav() {
