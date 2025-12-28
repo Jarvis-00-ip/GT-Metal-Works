@@ -37,8 +37,16 @@
     </div>
 </nav>
 
-<!-- Mobile Menu Overlay -->
 <div class="mobile-nav-overlay" id="mobile-nav">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+        <span class="text-muted" style="font-size: 0.9rem;">Menu</span>
+        <button class="theme-toggle mobile-theme-toggle" aria-label="Toggle Dark/Light Mode">
+            <span class="icon">☀</span>
+        </button>
+    </div>
+
+
+
     <a href="{{root}}index.html" class="mobile-link">Home</a>
     <a href="{{root}}pages/services/services.html" class="mobile-link">Servizi</a>
 
@@ -53,4 +61,7 @@
     <a href="{{root}}pages/projects/projects.html" class="mobile-link">Progetti</a>
     <a href="{{root}}pages/about/about.html" class="mobile-link">Chi Siamo</a>
     <a href="{{root}}pages/contact/contact.html" class="mobile-link">Contatti</a>
+
+    <!-- Mobile CTA (Moved to bottom) -->
+    <a href="{{root}}pages/contact/contact.html" class="mobile-link mobile-cta-link text-accent">Richiedi Preventivo</a>
 </div>

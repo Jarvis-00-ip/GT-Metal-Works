@@ -158,30 +158,36 @@ function initTestimonials() {
  * Dark/Light mode with localStorage persistence
  */
 function initThemeToggle() {
-    const toggleBtn = document.getElementById('theme-toggle');
-    if (!toggleBtn) return;
+    const toggleBtns = document.querySelectorAll('.theme-toggle');
+    if (toggleBtns.length === 0) return;
 
-    const icon = toggleBtn.querySelector('.icon');
     const body = document.body;
+
+    // Helper to update all icons
+    const updateIcons = (isLight) => {
+        toggleBtns.forEach(btn => {
+            const icon = btn.querySelector('.icon');
+            if (icon) icon.textContent = isLight ? '☀' : '🌙';
+        });
+    };
 
     // Check local storage
     const currentTheme = localStorage.getItem('theme');
     if (currentTheme === 'light') {
         body.classList.add('light-mode');
-        icon.textContent = '☀';
+        updateIcons(true);
     } else {
-        icon.textContent = '🌙';
+        updateIcons(false);
     }
 
-    toggleBtn.addEventListener('click', () => {
-        body.classList.toggle('light-mode');
+    // Attach listeners
+    toggleBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            const isLight = body.classList.contains('light-mode');
 
-        if (body.classList.contains('light-mode')) {
-            localStorage.setItem('theme', 'light');
-            icon.textContent = '☀';
-        } else {
-            localStorage.setItem('theme', 'dark');
-            icon.textContent = '🌙';
-        }
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            updateIcons(isLight);
+        });
     });
 }
