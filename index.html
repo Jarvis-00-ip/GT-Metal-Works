@@ -20,51 +20,53 @@
         <div class="hero-bg" style="background-image: url('assets/img/ferrari.jpg');"></div>
         <div class="hero-content">
             <h1 class="intro-fade-up">G.T. Metalworks</h1>
-            <h2 class="intro-fade-up delay-1" style="font-size: 1.5rem; font-weight: 300; margin-bottom: 2rem;">
-                Meccanica d'eccellenza, artigianale, senza compromessi.</h2>
-            <div class="intro-fade-up delay-2" style="display: flex; gap: 16px; justify-content: center;">
+            <h2 class="intro-fade-up delay-1">Meccanica d'eccellenza.<br>Artigianale. Senza compromessi.</h2>
+            <div class="intro-fade-up delay-2">
                 <a href="pages/contact/contact.html" class="btn btn-primary">Prenota una consulenza</a>
-                <a href="pages/projects/projects.html" class="btn btn-outline">Guarda i progetti</a>
             </div>
         </div>
     </section>
 
-    <!-- Highlights Strip -->
-    <div style="background: var(--bg-card); border-bottom: 1px solid var(--border-subtle); padding: 24px 0;">
-        <div class="container text-center text-italic"
-            style="letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.85rem;">
-            Dalla 500 alle Ferrari &nbsp;&bull;&nbsp; Rally & Competizione &nbsp;&bull;&nbsp; Restauro Storico
-            &nbsp;&bull;&nbsp; Supercar
+    <!-- Highlights / Intro -->
+    <div class="section-strip">
+        <div class="container">
+            <div class="strip-content">
+                <span>Dalla 500 alle Ferrari</span>
+                <span class="separator">/</span>
+                <span>Rally & Competizione</span>
+                <span class="separator">/</span>
+                <span>Restauro Storico</span>
+                <span class="separator">/</span>
+                <span>Supercar</span>
+            </div>
         </div>
     </div>
 
     <!-- Services Overview -->
     <section class="section container">
         <div class="grid-2">
-            <div class="card">
+            <div class="service-card">
                 <h3>Restauri Classici</h3>
-                <p class="text-body" style="margin-bottom: 24px;">Ridiamo vita alle leggende del passato con rispetto
-                    filologico e tecniche moderne. Dal telaio al motore.</p>
-                <a href="pages/specialties/classic-restorations/classic-restorations.html" class="text-accent"
-                    style="font-weight: 600;">Scopri di più &rarr;</a>
+                <p>Ridiamo vita alle leggende del passato con rispetto filologico e techniche moderne. Dal telaio al
+                    motore.</p>
+                <a href="pages/specialties/classic-restorations/classic-restorations.html" class="link-arrow">Scopri di
+                    più &rarr;</a>
             </div>
-            <div class="card">
+            <div class="service-card">
                 <h3>Performance Moderne</h3>
-                <p class="text-body" style="margin-bottom: 24px;">Tuning elettronico, assetti sportivi e preparazione
-                    pista per le supercar di oggi.</p>
-                <a href="pages/specialties/modern-performance/modern-performance.html" class="text-accent"
-                    style="font-weight: 600;">Scopri di più &rarr;</a>
+                <p>Tuning elettronico, assetti sportivi e preparazione pista per le supercar di oggi.</p>
+                <a href="pages/specialties/modern-performance/modern-performance.html" class="link-arrow">Scopri di più
+                    &rarr;</a>
             </div>
         </div>
     </section>
 
     <!-- Featured Projects -->
-    <section class="section" style="background: var(--bg-card-hover);">
+    <section class="section bg-darker">
         <div class="container">
-            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px;">
+            <div class="section-header">
                 <h2>Progetti Recenti</h2>
-                <a href="pages/projects/projects.html" class="btn btn-outline"
-                    style="padding: 8px 16px; font-size: 0.9rem;">Vedi Tutti</a>
+                <a href="pages/projects/projects.html" class="btn btn-outline small">Vedi Tutti</a>
             </div>
 
             <div class="grid-3">
@@ -72,8 +74,8 @@
                     <img src="assets/img/mitsubishi.jpg" alt="Mitsubishi Evo" class="project-img">
                     <div class="project-overlay">
                         <div>
-                            <h4 style="margin: 0; color: white;">Evo IX Track Spec</h4>
-                            <span class="text-accent" style="font-size: 0.8rem;">TUNING &bull; PISTA</span>
+                            <h4>Evo IX Track Spec</h4>
+                            <span class="project-meta">TUNING &bull; PISTA</span>
                         </div>
                     </div>
                 </div>
@@ -81,8 +83,8 @@
                     <img src="assets/img/corvette.jpg" alt="Corvette C7" class="project-img">
                     <div class="project-overlay">
                         <div>
-                            <h4 style="margin: 0; color: white;">C7 Supercharged</h4>
-                            <span class="text-accent" style="font-size: 0.8rem;">MOTORE &bull; SOFT TUNING</span>
+                            <h4>C7 Supercharged</h4>
+                            <span class="project-meta">MOTORE &bull; SOFT TUNING</span>
                         </div>
                     </div>
                 </div>
@@ -90,8 +92,8 @@
                     <img src="assets/img/pejout.jpg" alt="Peugeot Rally" class="project-img">
                     <div class="project-overlay">
                         <div>
-                            <h4 style="margin: 0; color: white;">205 GTI Gr.A</h4>
-                            <span class="text-accent" style="font-size: 0.8rem;">RESTAURO &bull; COMPETIZIONE</span>
+                            <h4>205 GTI Gr.A</h4>
+                            <span class="project-meta">RESTAURO &bull; COMPETIZIONE</span>
                         </div>
                     </div>
                 </div>
@@ -100,63 +102,60 @@
     </section>
 
     <!-- Premium CTA -->
-    <section class="section container" style="padding-bottom: 0;">
-        <div
-            style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 40px; text-align: center; max-width: 600px; margin: 0 auto; box-shadow: var(--shadow-soft);">
-            <h3 style="margin-bottom: 24px; font-weight: 400; font-size: 1.5rem;">Pronto per un upgrade?</h3>
-            <a href="pages/contact/contact.html" class="btn btn-primary"
-                aria-label="Contattaci per una consulenza">Contattaci</a>
+    <section class="section container no-padding-bottom">
+        <div class="cta-box">
+            <h3>Pronto per un upgrade?</h3>
+            <a href="pages/contact/contact.html" class="btn btn-primary">Contattaci</a>
         </div>
     </section>
 
     <!-- Testimonials Carousel -->
     <section class="section container">
-        <h2 class="text-center" style="margin-bottom: 60px;">Dicono di noi</h2>
+        <h2 class="text-center section-title-mb">Dicono di noi</h2>
 
         <div class="carousel-container" aria-label="Recensioni dei clienti">
             <div class="carousel-track">
 
                 <!-- Slide 1 -->
                 <div class="carousel-slide">
-                    <p class="text-italic" style="font-size: 1.2rem; margin-bottom: 20px;">"Mi ha rimesso in vita la mia
-                        E36 con una precisione e una pulizia incredibile."</p>
-                    <div class="text-white" style="font-weight: 700;">Pietro Curcio</div>
+                    <p class="testimonial-text">"Mi ha rimesso in vita la mia E36 con una precisione e una pulizia
+                        incredibile."</p>
+                    <div class="testimonial-author">Pietro Curcio</div>
                 </div>
 
                 <!-- Slide 2 -->
                 <div class="carousel-slide">
-                    <p class="text-italic" style="font-size: 1.2rem; margin-bottom: 20px;">"Gli ho portato il mio
-                        Maggiolone che aveva bisogno di un check-up completo: me l’ha riconsegnato che gira
-                        perfettamente."</p>
-                    <div class="text-white" style="font-weight: 700;">Andrea Curcio</div>
+                    <p class="testimonial-text">"Gli ho portato il mio Maggiolone che aveva bisogno di un check-up
+                        completo: me l’ha riconsegnato che gira perfettamente."</p>
+                    <div class="testimonial-author">Andrea Curcio</div>
                 </div>
 
                 <!-- Slide 3 -->
                 <div class="carousel-slide">
-                    <p class="text-italic" style="font-size: 1.2rem; margin-bottom: 20px;">"La mia Subaru aveva proprio
-                        bisogno di uno scarico nuovo. Lavoro impeccabile."</p>
-                    <div class="text-white" style="font-weight: 700;">Stefano B.</div>
+                    <p class="testimonial-text">"La mia Subaru aveva proprio bisogno di uno scarico nuovo. Lavoro
+                        impeccabile."</p>
+                    <div class="testimonial-author">Stefano B.</div>
                 </div>
 
                 <!-- Slide 4 -->
                 <div class="carousel-slide">
-                    <p class="text-italic" style="font-size: 1.2rem; margin-bottom: 20px;">"Maniacali. Hanno ricostruito
-                        da zero il motore della mia Delta rifacendo le bielle su misura. Ora è un orologio."</p>
-                    <div class="text-white" style="font-weight: 700;">Marco R.</div>
+                    <p class="testimonial-text">"Maniacali. Hanno ricostruito da zero il motore della mia Delta
+                        rifacendo le bielle su misura. Ora è un orologio."</p>
+                    <div class="testimonial-author">Marco R.</div>
                 </div>
 
                 <!-- Slide 5 -->
                 <div class="carousel-slide">
-                    <p class="text-italic" style="font-size: 1.2rem; margin-bottom: 20px;">"Finalmente qualcuno che sa
-                        mettere le mani su una Ferrari anni '80. Competenza da vecchia scuola, strumenti moderni."</p>
-                    <div class="text-white" style="font-weight: 700;">Avv. Giovanni L.</div>
+                    <p class="testimonial-text">"Finalmente qualcuno che sa mettere le mani su una Ferrari anni '80.
+                        Competenza da vecchia scuola, strumenti moderni."</p>
+                    <div class="testimonial-author">Avv. Giovanni L.</div>
                 </div>
 
                 <!-- Slide 6 -->
                 <div class="carousel-slide">
-                    <p class="text-italic" style="font-size: 1.2rem; margin-bottom: 20px;">"Assetto da gara per la mia
-                        Civic Type-R curato nei minimi dettagli. In pista la differenza è abissale."</p>
-                    <div class="text-white" style="font-weight: 700;">Davide S.</div>
+                    <p class="testimonial-text">"Assetto da gara per la mia Civic Type-R curato nei minimi dettagli. In
+                        pista la differenza è abissale."</p>
+                    <div class="testimonial-author">Davide S.</div>
                 </div>
             </div>
 

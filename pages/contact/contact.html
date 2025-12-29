@@ -82,22 +82,22 @@
             <!-- Form -->
             <div class="card" style="border-top: 4px solid var(--accent-red);">
                 <h3 style="margin-bottom: 24px;">Richiedi un Preventivo</h3>
-                <form id="contact-form">
+                <form id="contact-form" action="https://formspree.io/f/mdaoyopb" method="POST">
                     <label class="text-white" style="font-size: 0.9rem; display: block; margin-bottom: 6px;">Nome
                         Completo</label>
-                    <input type="text" class="contact-input" required>
+                    <input type="text" class="contact-input" name="name" required>
 
                     <label class="text-white"
                         style="font-size: 0.9rem; display: block; margin-bottom: 6px;">Email</label>
-                    <input type="email" class="contact-input" required>
+                    <input type="email" class="contact-input" name="email" required>
 
                     <label class="text-white"
                         style="font-size: 0.9rem; display: block; margin-bottom: 6px;">Telefono</label>
-                    <input type="tel" class="contact-input">
+                    <input type="tel" class="contact-input" name="phone">
 
                     <label class="text-white"
                         style="font-size: 0.9rem; display: block; margin-bottom: 6px;">Oggetto</label>
-                    <select class="contact-input">
+                    <select class="contact-input" name="subject">
                         <option>Preventivo Restauro</option>
                         <option>Tuning & Performance</option>
                         <option>Manutenzione</option>
@@ -106,7 +106,7 @@
 
                     <label class="text-white"
                         style="font-size: 0.9rem; display: block; margin-bottom: 6px;">Messaggio</label>
-                    <textarea class="contact-input" rows="5" required></textarea>
+                    <textarea class="contact-input" rows="5" name="message" required></textarea>
 
                     <div style="margin-bottom: 20px;">
                         <input type="checkbox" id="privacy" required>
@@ -130,7 +130,8 @@
     <script>
         initPartials('../../');
 
-        // Simple Form feedback
+        // Simple Form feedback - REMOVED since we are using native Formspree redirect
+        /*
         document.getElementById('contact-form').addEventListener('submit', function (e) {
             e.preventDefault();
             const feedback = document.getElementById('form-feedback');
@@ -138,6 +139,7 @@
             feedback.textContent = 'Messaggio inviato con successo!';
             this.reset();
         });
+        */
     </script>
 </body>
 

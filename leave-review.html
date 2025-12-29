@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lascia una Recensione | G.T. Metalworks</title>
+    <meta name="description"
+        content="Raccontaci la tua esperienza con G.T. Metalworks. Il tuo feedback è prezioso per noi.">
+
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- Review Page Specific Styles -->
+    <link rel="stylesheet" href="assets/css/review.css">
+</head>
+
+<body>
+
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <!-- Review Section -->
+    <section class="review-section">
+        <div class="container">
+            <div class="review-container">
+                <div class="review-header">
+                    <h1>Raccontaci la tua esperienza</h1>
+                    <p>La tua opinione ci aiuta a migliorare ogni giorno.</p>
+                </div>
+
+                <!-- Formspree Form -->
+                <form action="https://formspree.io/f/mzdbybpe" method="POST" enctype="multipart/form-data"
+                    class="review-form">
+
+                    <!-- Form inputs hidden settings -->
+                    <input type="hidden" name="_subject" value="Nuova Recensione G.T. Metalworks">
+                    <input type="hidden" name="_language" value="it">
+
+                    <div class="form-group">
+                        <label for="name">Nome <span class="optional">(Opzionale)</span></label>
+                        <input type="text" id="name" name="name" placeholder="Il tuo nome">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="review">La tua Recensione</label>
+                        <textarea id="review" name="review" required
+                            placeholder="Scrivi qui la tua esperienza..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="photos">Carica Foto <span class="optional">(Opzionale)</span></label>
+                        <div class="file-upload-wrapper">
+                            <input type="file" id="photos" name="photos" multiple accept="image/*">
+                            <div class="upload-placeholder">
+                                <span>Clicca o trascina qui le foto</span>
+                                <div style="font-size: 0.8rem; margin-top: 5px; color: #666;">(JPG, PNG supported)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Invia Recensione</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="assets/js/partials.js"></script>
+    <script src="assets/js/nav-scroll.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Init partials with root path
+        initPartials('./');
+    </script>
+</body>
+
+</html>

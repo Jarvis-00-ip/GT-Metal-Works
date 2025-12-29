@@ -25,7 +25,13 @@ const NAV_HTML = `
 
                 <li><a href="{{root}}pages/projects/projects.html" class="nav-item">Progetti</a></li>
                 <li><a href="{{root}}pages/about/about.html" class="nav-item">Chi Siamo</a></li>
-                <li><a href="{{root}}pages/contact/contact.html" class="nav-item">Contatti</a></li>
+                <li class="nav-item" tabindex="0">
+                    Contatti ▾
+                    <div class="dropdown-menu">
+                        <a href="{{root}}pages/contact/contact.html" class="dropdown-link">Contatti</a>
+                        <a href="{{root}}leave-review.html" class="dropdown-link">Lascia una recensione</a>
+                    </div>
+                </li>
             </ul>
 
             <div class="nav-actions">
@@ -61,7 +67,9 @@ const NAV_HTML = `
 
         <a href="{{root}}pages/projects/projects.html" class="mobile-link">Progetti</a>
         <a href="{{root}}pages/about/about.html" class="mobile-link">Chi Siamo</a>
-        <a href="{{root}}pages/contact/contact.html" class="mobile-link">Contatti</a>
+        <div class="mobile-link">Contatti</div>
+        <a href="{{root}}pages/contact/contact.html" class="mobile-sublink">Contatti</a>
+        <a href="{{root}}leave-review.html" class="mobile-sublink">Lascia una recensione</a>
 
         <!-- Mobile CTA (Moved to bottom) -->
         <a href="{{root}}pages/contact/contact.html" class="mobile-link mobile-cta-link text-accent">Richiedi Preventivo</a>
@@ -83,6 +91,7 @@ const FOOTER_HTML = `
                         <li><a href="{{root}}pages/projects/projects.html" class="text-body">Progetti</a></li>
                         <li><a href="{{root}}pages/about/about.html" class="text-body">Chi Siamo</a></li>
                         <li><a href="{{root}}pages/contact/contact.html" class="text-body">Contatti</a></li>
+                        <li><a href="{{root}}leave-review.html" class="text-body">Lascia Una Recensione</a></li>
                         <li><a href="{{root}}pages/privacy/privacy.html" class="text-body">Privacy Policy</a></li>
                     </ul>
                 </div>
