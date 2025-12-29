@@ -70,7 +70,12 @@ body.light-mode .hero-bg {
 
 body.light-mode .hero-content h1,
 body.light-mode .hero-content h2,
-body.light-mode .hero-content p {
+body.light-mode .hero-content h3,
+body.light-mode .hero-content p,
+body.light-mode .project-overlay h3,
+body.light-mode .project-overlay h4,
+body.light-mode .project-overlay p,
+body.light-mode .project-title {
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     /* Improve legibility on bright image */
     color: white !important;
