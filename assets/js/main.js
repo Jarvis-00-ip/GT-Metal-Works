@@ -5,7 +5,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     initProjects();
-    initTestimonials();
+    initCarousels();
 });
 
 // Wait for partials to be injected
@@ -96,61 +96,107 @@ function initProjects() {
     }
 }
 
-function initTestimonials() {
-    const track = document.querySelector(".carousel-track");
-    const slides = Array.from(track.children);
-    const indicatorsContainer = document.querySelector(".carousel-indicators");
+function initCarousels() {
+    const carousels = document.querySelectorAll(".carousel-container");
 
-    if (!track || slides.length === 0) return;
+    carousels.forEach((container, carouselIndex) => {
+        const track = container.querySelector(".carousel-track");
+        const slides = Array.from(track.children);
+        const indicatorsContainer = container.querySelector(".carousel-indicators");
 
-    // Create indicators
-    slides.forEach((_, index) => {
-        const dot = document.createElement("button");
-        dot.classList.add("carousel-dot");
-        dot.setAttribute("aria-label", `Vai alla recensione ${index + 1}`);
-        if (index === 0) dot.classList.add("active");
+        if (!track || slides.length === 0) return;
 
-        dot.addEventListener("click", () => {
+        // CRITICAL FIX: Prevent Horizontal Scroll Hijacking
+        container.addEventListener("wheel", (e) => {
+            if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        // Create Navigation Arrows
+        const prevBtn = document.createElement("button");
+        prevBtn.classList.add("carousel-btn", "carousel-prev");
+        prevBtn.innerHTML = "&#10094;";
+        prevBtn.setAttribute("aria-label", "Precedente");
+
+        const nextBtn = document.createElement("button");
+        nextBtn.classList.add("carousel-btn", "carousel-next");
+        nextBtn.innerHTML = "&#10095;";
+        nextBtn.setAttribute("aria-label", "Successivo");
+
+        container.appendChild(prevBtn);
+        container.appendChild(nextBtn);
+
+        // Create indicators if container exists
+        if (indicatorsContainer) {
+            slides.forEach((_, index) => {
+                const dot = document.createElement("button");
+                dot.classList.add("carousel-dot");
+                dot.setAttribute("aria-label", `Vai alla slide ${index + 1}`);
+                if (index === 0) dot.classList.add("active");
+
+                dot.addEventListener("click", () => {
+                    goToSlide(index);
+                    stopAutoPlay();
+                    startAutoPlay();
+                });
+
+                indicatorsContainer.appendChild(dot);
+            });
+        }
+
+        const dots = indicatorsContainer ? Array.from(indicatorsContainer.children) : [];
+        let currentIndex = 0;
+        let autoPlayTimer;
+
+        function goToSlide(index) {
+            track.style.transform = `translateX(-${index * 100}%)`;
+            if (dots.length > 0) {
+                dots.forEach(dot => dot.classList.remove("active"));
+                if (dots[index]) dots[index].classList.add("active");
+            }
+            currentIndex = index;
+        }
+
+        function nextSlide() {
+            let index = currentIndex + 1;
+            if (index >= slides.length) index = 0;
             goToSlide(index);
+        }
+
+        function prevSlide() {
+            let index = currentIndex - 1;
+            if (index < 0) index = slides.length - 1;
+            goToSlide(index);
+        }
+
+        function startAutoPlay() {
+            autoPlayTimer = setInterval(nextSlide, 5000);
+        }
+
+        function stopAutoPlay() {
+            clearInterval(autoPlayTimer);
+        }
+
+        // Event Listeners
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
             stopAutoPlay();
             startAutoPlay();
         });
 
-        indicatorsContainer.appendChild(dot);
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            stopAutoPlay();
+            startAutoPlay();
+        });
+
+        container.addEventListener("mouseenter", stopAutoPlay);
+        container.addEventListener("mouseleave", startAutoPlay);
+
+        // Initial Start
+        startAutoPlay();
     });
-
-    const dots = Array.from(indicatorsContainer.children);
-    let currentIndex = 0;
-    let autoPlayTimer;
-
-    function goToSlide(index) {
-        track.style.transform = `translateX(-${index * 100}%)`;
-        dots.forEach(dot => dot.classList.remove("active"));
-        dots[index].classList.add("active");
-        currentIndex = index;
-    }
-
-    function nextSlide() {
-        let index = currentIndex + 1;
-        if (index >= slides.length) index = 0;
-        goToSlide(index);
-    }
-
-    function startAutoPlay() {
-        autoPlayTimer = setInterval(nextSlide, 5000);
-    }
-
-    function stopAutoPlay() {
-        clearInterval(autoPlayTimer);
-    }
-
-    // Event Listeners for Pause on Hover
-    const container = document.querySelector(".carousel-container");
-    container.addEventListener("mouseenter", stopAutoPlay);
-    container.addEventListener("mouseleave", startAutoPlay);
-
-    // Initial Start
-    startAutoPlay();
 }
 
 /**
