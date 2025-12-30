@@ -262,3 +262,95 @@ function initScrollAnimations() {
     const revealElements = document.querySelectorAll('.reveal-left, .reveal-right');
     revealElements.forEach(el => observer.observe(el));
 }
+
+/**
+ * FULL SCREEN CAROUSEL OBSERVER
+ * Tiggers blur/reveal animation on active slide
+ */
+function initProjectCarousel() {
+    const container = document.querySelector('#project-carousel');
+    const slides = document.querySelectorAll('.project-slide');
+    const dots = document.querySelectorAll('.nav-dot');
+    const upBtn = document.querySelector('#nav-up');
+    const downBtn = document.querySelector('#nav-down');
+
+    if (slides.length === 0) return;
+
+    // --- OBSERVER FOR ANIMATION & DOT SYNC ---
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('slide-active');
+
+                // Update dots
+                const index = Array.from(slides).indexOf(entry.target);
+                if (index !== -1 && dots[index]) {
+                    dots.forEach(d => d.classList.remove('active'));
+                    dots[index].classList.add('active');
+                }
+
+            } else {
+                entry.target.classList.remove('slide-active');
+            }
+        });
+    }, { threshold: 0.5 });
+
+    slides.forEach(slide => observer.observe(slide));
+
+    // --- NAVIGATION LOGIC ---
+    // Smooth scroll to slide index
+    const scrollToSlide = (index) => {
+        if (slides[index]) {
+            slides[index].scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    // Dots click
+    dots.forEach((dot, idx) => {
+        dot.addEventListener('click', () => scrollToSlide(idx));
+    });
+
+    // Arrows click
+    if (upBtn) {
+        upBtn.addEventListener('click', () => {
+            container.scrollBy({ top: -window.innerHeight, behavior: 'smooth' });
+        });
+    }
+
+    if (downBtn) {
+        downBtn.addEventListener('click', () => {
+            container.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+        });
+    }
+}
+
+// Update initialization
+document.addEventListener('DOMContentLoaded', () => {
+    // Determine path depth for partials
+    const depth = document.location.pathname.split('/').length - 2;
+    // This is unreliable across environments unless we know base. 
+    // Better: Check if we are in 'pages/projects' etc.
+
+    let rootPath = './';
+    if (document.location.pathname.includes('/pages/projects/')) {
+        rootPath = '../../';
+    } else if (document.location.pathname.includes('/pages/services/')) {
+        rootPath = '../../';
+    } else if (document.location.pathname.includes('/pages/')) {
+        rootPath = '../';
+    }
+
+    // Safest fallback if explicitly set by file
+    if (window.PROJECT_ROOT) rootPath = window.PROJECT_ROOT;
+
+    initPartials(rootPath);
+    initThemeToggle();
+    initScrollAnimations();
+    initProjectCarousel();
+
+    // Defer non-critical logic
+    setTimeout(() => {
+        initCarousels();
+        initProjectModal();
+    }, 100);
+});
