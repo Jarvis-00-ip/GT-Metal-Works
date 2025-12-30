@@ -16,47 +16,144 @@
     <div id="header-placeholder"></div>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero-fullscreen">
         <div class="hero-bg" style="background-image: url('assets/img/ferrari.jpg');"></div>
+        <div class="hero-overlay-gradient"></div>
+
         <div class="hero-content">
             <h1 class="intro-fade-up">G.T. Metalworks</h1>
-            <h2 class="intro-fade-up delay-1">Meccanica d'eccellenza.<br>Artigianale. Senza compromessi.</h2>
+            <h2 class="intro-fade-up delay-1">Ingegneria classica. Performance moderna. Zero compromessi.</h2>
             <div class="intro-fade-up delay-2">
-                <a href="pages/contact/contact.html" class="btn btn-primary">Prenota una consulenza</a>
+                <a href="pages/contact/contact.html" class="btn btn-primary"
+                    style="padding: 16px 40px; font-size: 1rem;">INIZIA UN PROGETTO</a>
             </div>
         </div>
     </section>
 
-    <!-- Highlights / Intro -->
-    <div class="section-strip">
+    <!-- Brand Philosophy Strip -->
+    <div class="section-strip" style="border-color: var(--border-subtle); background: var(--bg-dark);">
         <div class="container">
-            <div class="strip-content">
-                <span>Dalla 500 alle Ferrari</span>
+            <div class="strip-content" style="opacity: 0.7;">
+                <span>Restauri</span>
                 <span class="separator">/</span>
-                <span>Rally & Competizione</span>
+                <span>Prototipazione</span>
                 <span class="separator">/</span>
-                <span>Restauro Storico</span>
+                <span>Motorsport</span>
                 <span class="separator">/</span>
-                <span>Supercar</span>
+                <span>Engineering</span>
             </div>
         </div>
     </div>
 
-    <!-- Services Overview -->
-    <section class="section container">
-        <div class="grid-2">
-            <div class="service-card">
-                <h3>Restauri Classici</h3>
-                <p>Ridiamo vita alle leggende del passato con rispetto filologico e techniche moderne. Dal telaio al
-                    motore.</p>
-                <a href="pages/specialties/classic-restorations/classic-restorations.html" class="link-arrow">Scopri di
-                    più &rarr;</a>
+    <!-- Technical Services Grid (The "Process") -->
+    <section class="section no-padding-bottom">
+        <div class="container">
+            <div class="section-header">
+                <h2>WORKSHOP & SPECIALIZATIONS</h2>
+                <div
+                    style="height: 1px; flex-grow: 1; background: var(--border-subtle); margin-left: 40px; margin-bottom: 8px;">
+                </div>
             </div>
-            <div class="service-card">
-                <h3>Performance Moderne</h3>
-                <p>Tuning elettronico, assetti sportivi e preparazione pista per le supercar di oggi.</p>
-                <a href="pages/specialties/modern-performance/modern-performance.html" class="link-arrow">Scopri di più
-                    &rarr;</a>
+        </div>
+
+        <!-- Full Width Tech Grid -->
+        <div class="container">
+            <div class="tech-grid">
+                <!-- 01 -->
+                <a href="pages/specialties/classic-restorations/classic-restorations.html" class="tech-card">
+                    <span class="process-number">01</span>
+                    <div>
+                        <h3>Restauro</h3>
+                        <p>Ricostruzione filologica di vetture storiche. Dal telaio nudo alla messa in moto, rispettando
+                            ogni specifica originale o migliorandola invisibilmente.</p>
+                    </div>
+                    <span class="link-line"></span>
+                </a>
+
+                <!-- 02 -->
+                <a href="pages/services/rettifiche-motori.html" class="tech-card">
+                    <span class="process-number">02</span>
+                    <div>
+                        <h3>Motore</h3>
+                        <p>Rettifiche di precisione, flussaggio testate e assemblaggio "Blueprinting". Dove la
+                            tolleranza è zero e la performance è tutto.</p>
+                    </div>
+                    <span class="link-line"></span>
+                </a>
+
+                <!-- 03 -->
+                <a href="pages/specialties/modern-performance/modern-performance.html" class="tech-card">
+                    <span class="process-number">03</span>
+                    <div>
+                        <h3>Performance</h3>
+                        <p>Assetti, scarichi in titanio saldati a TIG e mappe ECU per trasformare moderne sportive in
+                            armi da pista.</p>
+                    </div>
+                    <span class="link-line"></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED ENGINEERING (ZIG-ZAG) -->
+    <section id="featured-projects" class="section">
+        <div class="container">
+            <!-- Row 1: Text Left | Img Right -->
+            <div class="featured-row">
+                <div class="text-col reveal-left">
+                    <h3 class="featured-car">CORVETTE C7 SUPERCHARGED</h3>
+                    <h4 class="featured-subtitle">SOVRALIMENTAZIONE & TUNING MOTORE</h4>
+                    <p class="featured-desc">Un incremento di potenza brutale. Installazione compressore volumetrico
+                        Edelbrock, mappatura dedicata e adeguamento termico completo per gestire oltre 750 CV in totale
+                        affidabilità su strada e pista.</p>
+                    <ul class="featured-specs">
+                        <li>[Compressore Edelbrock]</li>
+                        <li>[Mappatura Custom]</li>
+                        <li>[Intercooler Maggiorato]</li>
+                    </ul>
+                </div>
+                <div class="img-col reveal-right">
+                    <img src="assets/img/corvette.jpg" alt="Corvette C7 Supercharged" class="featured-img">
+                </div>
+            </div>
+
+            <!-- Row 2: Img Left | Text Right (via row-reverse) -->
+            <!-- DOM Order: Text (Right) then Img (Left) to work with row-reverse -->
+            <div class="featured-row">
+                <div class="text-col reveal-right">
+                    <h3 class="featured-car">MITSUBISHI EVO IX</h3>
+                    <h4 class="featured-subtitle">DOMINIO IN PISTA & AERODINAMICA</h4>
+                    <p class="featured-desc">Un mostro da time-attack costruito per il circuito. Abbiamo ridisegnato il
+                        sistema di raffreddamento, implementato un pacchetto aerodinamico su misura e tarato i
+                        differenziali attivi per una precisione di guida chirurgica.</p>
+                    <ul class="featured-specs">
+                        <li>[Sospensioni Öhlins]</li>
+                        <li>[Scarico Titanio]</li>
+                        <li>[MoTeC M800 ECU]</li>
+                    </ul>
+                </div>
+                <div class="img-col reveal-left">
+                    <img src="assets/img/mitsubishi.jpg" alt="Mitsubishi Evo IX Track Spec" class="featured-img">
+                </div>
+            </div>
+
+            <!-- Row 3: Text Left | Img Right -->
+            <div class="featured-row">
+                <div class="text-col reveal-left">
+                    <h3 class="featured-car">PEUGEOT 205 GTI</h3>
+                    <h4 class="featured-subtitle">SPECIFICHE GRUPPO A & RESTAURO</h4>
+                    <p class="featured-desc">Il mito delle hot-hatch rinato. Un restauro "frame-off" focalizzato sulla
+                        rigidità strutturale e un'elaborazione motore "blueprinting" per eguagliare le specifiche
+                        ufficiali della fiche FIA Gruppo A.</p>
+                    <ul class="featured-specs">
+                        <li>[Motore 1.9L Blueprint]</li>
+                        <li>[Bilstein Gr. N]</li>
+                        <li>[Telaietto Rinforzato]</li>
+                    </ul>
+                </div>
+                <div class="img-col reveal-right">
+                    <img src="assets/img/pejout.jpg" alt="Peugeot 205 GTI Restoration" class="featured-img">
+                </div>
             </div>
         </div>
     </section>

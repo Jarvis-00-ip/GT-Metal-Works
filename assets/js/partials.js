@@ -14,8 +14,8 @@ const NAV_HTML = `
                 <li><a href="{{root}}index.html" class="nav-item">Home</a></li>
                 <li><a href="{{root}}pages/services/services.html" class="nav-item">Servizi</a></li>
                 
-                <li class="nav-item" tabindex="0">
-                    Specialità ▾
+                <li class="nav-item link-container" tabindex="0">
+                    <span style="cursor: pointer;">Specialità ▾</span>
                     <div class="dropdown-menu">
                         <a href="{{root}}pages/specialties/classic-restorations/classic-restorations.html" class="dropdown-link">Restauri Classici</a>
                         <a href="{{root}}pages/specialties/modern-performance/modern-performance.html" class="dropdown-link">Performance Moderne</a>
@@ -25,8 +25,8 @@ const NAV_HTML = `
 
                 <li><a href="{{root}}pages/projects/projects.html" class="nav-item">Progetti</a></li>
                 <li><a href="{{root}}pages/about/about.html" class="nav-item">Chi Siamo</a></li>
-                <li class="nav-item" tabindex="0">
-                    Contatti ▾
+                <li class="nav-item link-container" tabindex="0">
+                    <span style="cursor: pointer;">Contatti ▾</span>
                     <div class="dropdown-menu">
                         <a href="{{root}}pages/contact/contact.html" class="dropdown-link">Contatti</a>
                         <a href="{{root}}leave-review.html" class="dropdown-link">Lascia una recensione</a>
@@ -55,8 +55,6 @@ const NAV_HTML = `
             </button>
         </div>
 
-
-
         <a href="{{root}}index.html" class="mobile-link">Home</a>
         <a href="{{root}}pages/services/services.html" class="mobile-link">Servizi</a>
         
@@ -71,7 +69,7 @@ const NAV_HTML = `
         <a href="{{root}}pages/contact/contact.html" class="mobile-sublink">Contatti</a>
         <a href="{{root}}leave-review.html" class="mobile-sublink">Lascia una recensione</a>
 
-        <!-- Mobile CTA (Moved to bottom) -->
+        <!-- Mobile CTA -->
         <a href="{{root}}pages/contact/contact.html" class="mobile-link mobile-cta-link text-accent">Richiedi Preventivo</a>
     </div>
 `;
@@ -82,38 +80,37 @@ const FOOTER_HTML = `
             <div class="grid-4">
                 <div>
                     <h4>G.T.METALWORKS</h4>
-                    <p class="text-muted">Officina meccanica di precisione specializzata in auto sportive italiane e restuaro classiche.</p>
+                    <p class="text-white" style="opacity: 0.7; line-height: 1.6;">Officina meccanica di precisione specializzata in auto sportive italiane e restauro classiche.</p>
                 </div>
                 <div>
                     <h4>Link Rapidi</h4>
                     <ul>
-                        <li><a href="{{root}}pages/services/services.html" class="text-body">Servizi</a></li>
-                        <li><a href="{{root}}pages/projects/projects.html" class="text-body">Progetti</a></li>
-                        <li><a href="{{root}}pages/about/about.html" class="text-body">Chi Siamo</a></li>
-                        <li><a href="{{root}}pages/contact/contact.html" class="text-body">Contatti</a></li>
-                        <li><a href="{{root}}leave-review.html" class="text-body">Lascia Una Recensione</a></li>
-                        <li><a href="{{root}}pages/privacy/privacy.html" class="text-body">Privacy Policy</a></li>
+                        <li><a href="{{root}}pages/services/services.html">Servizi</a></li>
+                        <li><a href="{{root}}pages/projects/projects.html">Progetti</a></li>
+                        <li><a href="{{root}}pages/about/about.html">Chi Siamo</a></li>
+                        <li><a href="{{root}}pages/contact/contact.html">Contatti</a></li>
+                        <li><a href="{{root}}leave-review.html">Lascia Una Recensione</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4>Contatti</h4>
                     <ul>
-                        <li class="text-body">Via Guido Rossa, Sarissola (GE – Busalla)</li>
-                        <li class="text-body">+39 059 123456</li>
-                        <li><a href="mailto:info@gtmetalworks.it" class="text-accent">info@gtmetalworks.it</a></li>
+                        <li style="color: #a0a0a0;">Via Guido Rossa, Sarissola (GE)</li>
+                        <li style="color: #a0a0a0;">+39 059 123456</li>
+                        <li><a href="mailto:info@gtmetalworks.it">info@gtmetalworks.it</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4>Social</h4>
-                    <div style="display: flex; gap: 10px;">
-                        <a href="https://www.instagram.com/g.t.metalworks/" target="_blank" rel="noopener noreferrer" class="text-white" aria-label="Instagram">Instagram</a>
-                    </div>
+                    <ul class="footer-social">
+                        <li><a href="https://www.instagram.com/g.t.metalworks/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                    </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
                 <span>&copy; 2024 G.T.Metalworks. P.IVA 01234567890</span>
-                <a href="{{root}}pages/privacy/privacy.html" class="text-muted">Privacy Policy</a>
+                <a href="{{root}}pages/privacy/privacy.html">Privacy Policy</a>
             </div>
             <div class="tricolore-strip"></div>
         </div>

@@ -3,47 +3,55 @@
  * High-performance, Italian Automotive Design
  */
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@300;400;500;700&display=swap');
+
 :root {
-    /* Color Palette */
-    --bg-dark: #0f1012;
-    --bg-darker: #050505;
-    --bg-card: #141414;
-    --bg-card-hover: #1a1a1a;
+    /* HIGH-END AUTOMOTIVE PALETTE ("Dark Engineering") */
+    --bg-dark: #050505;
+    /* Deepest Black */
+    --bg-darker: #000000;
+    /* True Black */
+    --bg-card: #0a0a0a;
+    /* Very dark grey */
+    --bg-card-hover: #111111;
 
     --text-white: #ffffff;
-    --text-heading: #f2f2f2;
-    --text-body: #a0a0a0;
+    --text-heading: #ffffff;
+    --text-body: #b0b0b0;
+    /* Cool grey */
     --text-muted: #666666;
 
-    /* Tricolore Accents */
+    /* Tricolore - Subtle & Sharp */
     --accent-green: #009246;
     --accent-white: #f1f2f1;
     --accent-red: #cc0000;
 
-    /* Functional */
-    --border-subtle: rgba(255, 255, 255, 0.1);
-    --border-focus: rgba(255, 255, 255, 0.3);
+    /* Engineering Precision */
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    /* Fainter, sharper lines */
+    --border-focus: rgba(255, 255, 255, 0.4);
 
-    /* Shadows reduced for flatter look */
-    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.3);
-    --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.5);
+    /* Shadows? Minimal to none. Flat & Clean. */
+    --shadow-soft: none;
+    --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.7);
 
     /* Layout */
-    --nav-height: 80px;
-    --container-width: 1400px;
-    /* Wider container */
-    --radius-sm: 0px;
-    /* Rectangular */
-    --radius-md: 2px;
-    /* Nearly rectangular */
+    --nav-height: 90px;
+    --container-width: 1440px;
+    /* Wider canvas */
 
-    /* Generic Spacing */
-    --space-md: 40px;
-    --space-lg: 80px;
-    --space-xl: 120px;
+    --radius-sm: 0px;
+    /* Sharp corners = Engineering */
+    --radius-md: 0px;
+
+    /* Generic Spacing - "White/Dark Space" */
+    --space-md: 60px;
+    --space-lg: 100px;
+    --space-xl: 160px;
 
     /* Transitions */
-    --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    /* Snappy, premium feel */
 }
 
 /* LIGHT MODE OVERRIDES */
@@ -178,40 +186,28 @@ html {
 body {
     background-color: var(--bg-dark);
     color: var(--text-body);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: "Inter", -apple-system, sans-serif;
+    /* Body font */
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.7;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
 }
 
-a {
-    text-decoration: none;
-    color: var(--text-white);
-    transition: color 0.3s ease;
-}
-
-ul {
-    list-style: none;
-}
-
-img {
-    max-width: 100%;
-    display: block;
-}
-
-/* TYPOGRAPHY */
+/* TYPOGRAPHY - "Oswald" for Impact */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
+    font-family: "Oswald", sans-serif;
     color: var(--text-heading);
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 1rem;
-    letter-spacing: -0.02em;
+    font-weight: 500;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
 }
 
 h1 {
@@ -361,51 +357,51 @@ h3 {
     gap: 20px;
 }
 
-.brand {
-    font-weight: 700;
-    font-size: 1.25rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--text-white);
-    position: relative;
-}
-
-.brand::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 24px;
-    height: 2px;
-    background: linear-gradient(90deg, var(--accent-green) 33%, var(--accent-white) 33%, var(--accent-white) 66%, var(--accent-red) 66%);
-}
-
+/* NAV LINKS - PREMIUM NO-UNDERLINE STYLE */
 .nav-menu {
     display: none;
+    list-style: none;
+    /* User Request: Remove bullets */
+    margin: 0;
+    padding: 0;
 }
 
 @media(min-width: 900px) {
     .nav-menu {
         display: flex;
+        /* User Request: Horizontal align */
         gap: 32px;
         align-items: center;
     }
 }
 
-.nav-item {
-    position: relative;
-    font-size: 0.9rem;
-    font-weight: 500;
+.nav-item,
+.brand,
+.dropdown-link,
+.mobile-link,
+.mobile-sublink {
+    text-decoration: none !important;
+    /* Force removal of underline */
     color: var(--text-body);
+    transition: all 0.3s ease;
+}
+
+.brand {
+    color: var(--text-white);
 }
 
 .nav-item:hover,
-.nav-item:focus-within {
-    color: var(--text-white);
+.nav-item:focus-within,
+.dropdown-link:hover,
+.mobile-link:hover,
+.mobile-sublink:hover {
+    color: var(--accent-red);
+    text-decoration: none !important;
 }
 
 .nav-item.active {
     color: var(--text-white);
+    text-decoration: none;
 }
 
 /* Dropdown */
@@ -499,6 +495,15 @@ h3 {
 }
 
 /* BUTTONS */
+/* BUTTONS - NO UNDERLINE FIX */
+.btn,
+.btn-primary,
+.btn-accent,
+.btn-outline,
+.header-cta {
+    text-decoration: none !important;
+}
+
 .btn {
     display: inline-flex;
     align-items: center;
@@ -563,48 +568,136 @@ h3 {
 }
 
 /* HOME HERO & ANIMATIONS */
-.hero {
+/* HERO REDESIGN - IMMERSIVE */
+.hero-fullscreen {
     position: relative;
-    height: 90vh;
-    min-height: 700px;
+    height: 100vh;
+    /* Full viewport */
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
 }
 
-.hero-bg {
+.hero-fullscreen .hero-bg {
     position: absolute;
     inset: 0;
     background-size: cover;
     background-position: center;
-    opacity: 0.5;
-    /* Increased visibility slightly */
-    transform: scale(1.02);
+    opacity: 0.6;
+    /* Slightly darker for text pop */
+    transform: scale(1.05);
+    /* Slow zoom effect usually handled by JS/CSS anim */
     transition: transform 10s ease;
+}
+
+.hero-overlay-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, var(--bg-dark) 0%, transparent 60%, rgba(0, 0, 0, 0.4) 100%);
+    z-index: 1;
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
     text-align: center;
-    max-width: 900px;
-    padding: 0 20px;
+    max-width: 1100px;
+    padding: 0 40px;
 }
 
 .hero-content h1 {
-    font-size: clamp(3rem, 6vw, 5rem);
-    letter-spacing: -0.03em;
+    font-size: clamp(3.5rem, 7vw, 6.5rem);
+    /* Massive Impact */
+    font-weight: 700;
+    letter-spacing: 0.05em;
     margin-bottom: 20px;
-    text-transform: uppercase;
+    line-height: 0.95;
 }
 
 .hero-content h2 {
-    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    font-family: "Inter", sans-serif;
+    /* Contrast font */
+    font-size: clamp(1rem, 1.5vw, 1.3rem);
     font-weight: 300;
-    color: var(--text-white);
+    text-transform: none;
+    /* Sentence case for elegance */
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 50px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* TECH GRID - ENGINEERING STYLE */
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--border-subtle);
+    border-left: 1px solid var(--border-subtle);
+}
+
+.tech-card {
+    background: transparent;
+    border-right: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 60px 40px;
+    transition: background 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 400px;
+    position: relative;
+}
+
+.tech-card:hover {
+    background: var(--bg-card-hover);
+}
+
+.tech-card:hover .link-line {
+    width: 100%;
+    background: var(--accent-red);
+}
+
+.process-number {
+    font-family: "Oswald", sans-serif;
+    font-size: 4rem;
+    color: rgba(255, 255, 255, 0.05);
+    /* Subtle watermark */
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-weight: 700;
+}
+
+.tech-card h3 {
+    font-size: 2rem;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.tech-card p {
+    font-size: 1rem;
+    color: var(--text-body);
     margin-bottom: 40px;
-    line-height: 1.4;
+    line-height: 1.8;
+}
+
+.link-line {
+    display: block;
+    height: 2px;
+    width: 40px;
+    background: var(--border-focus);
+    margin-top: auto;
+    transition: all 0.4s var(--ease-out);
+}
+
+@media(max-width: 900px) {
+    .tech-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Intro Animation */
@@ -909,6 +1002,33 @@ body.light-mode .hero-content .btn-outline:hover {
     position: relative;
 }
 
+/* User Requested Footer Styling */
+.site-footer ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.site-footer li {
+    margin-bottom: 0.8rem;
+}
+
+.site-footer a {
+    color: #a0a0a0;
+    /* Tech Grey */
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.site-footer a:hover {
+    color: var(--accent-red);
+    /* Mapped from --primary-color */
+    transform: translateX(5px);
+}
+
 .footer-bottom {
     margin-top: 60px;
     padding-top: 20px;
@@ -1022,5 +1142,197 @@ body.light-mode .hero-content .btn-outline:hover {
 
     .carousel-container:hover .carousel-btn {
         opacity: 1;
+    }
+}
+
+/* --- TECH GRID & CARDS --- */
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.tech-card {
+    display: block;
+    text-decoration: none !important;
+    /* FIX: Remove underline */
+    background: var(--bg-card);
+    padding: 2rem;
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.tech-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-red);
+}
+
+.tech-card h3 {
+    color: var(--text-heading);
+    margin-bottom: 0.5rem;
+    font-family: "Oswald", sans-serif;
+}
+
+.tech-card p {
+    color: var(--text-body);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.process-number {
+    display: block;
+    font-family: "Oswald", sans-serif;
+    font-size: 3rem;
+    color: rgba(255, 255, 255, 0.1);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+/* --- FEATURED PROJECTS SHOWCASE --- */
+.featured-row {
+    display: flex;
+    align-items: center;
+    gap: 6rem;
+    /* Increased gap for cleaner look */
+    padding: 6rem 0;
+    /* More vertical breathing room */
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.featured-row:last-child {
+    border-bottom: none;
+}
+
+.featured-row:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.text-col {
+    flex: 1;
+    padding: 0 1rem;
+    /* Prevent text touching edges */
+}
+
+.img-col {
+    flex: 1.2;
+    /* Give images slightly more weight */
+}
+
+.featured-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 4px;
+    /* Requested radius */
+    box-shadow: var(--shadow-hover);
+    /* Subtle shadow */
+    filter: grayscale(20%);
+    /* Artistic touch */
+    transition: filter 0.3s ease;
+}
+
+.featured-row:hover .featured-img {
+    filter: grayscale(0%);
+}
+
+.featured-car {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--text-heading);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-family: "Oswald", sans-serif;
+}
+
+.featured-subtitle {
+    color: var(--accent-red);
+    /* var(--primary-color) equivalent */
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    margin-bottom: 24px;
+    display: block;
+}
+
+.featured-desc {
+    color: var(--text-body);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    max-width: 90%;
+}
+
+.featured-specs {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-family: monospace;
+    /* Tech feel */
+    color: var(--text-white);
+    font-size: 0.9rem;
+}
+
+.featured-specs li {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 5px 10px;
+    border-radius: 2px;
+    border: 1px solid var(--border-subtle);
+}
+
+@media(max-width: 900px) {
+
+    .featured-row,
+    .featured-row:nth-child(even) {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 3rem 0;
+        text-align: center;
+    }
+
+    .featured-desc {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .featured-specs {
+        justify-content: center;
+    }
+}
+
+/* SCROLL ANIMATION - SIDE REVEAL */
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: all 1s cubic-bezier(0.21, 0.6, 0.35, 1);
+    /* Easing for premium feel */
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all 1s cubic-bezier(0.21, 0.6, 0.35, 1);
+}
+
+.reveal-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+@media(max-width: 900px) {
+
+    /* On mobile, standard fade up is better than side scroll which can cause X-overflow */
+    .reveal-left,
+    .reveal-right {
+        transform: translateY(30px);
+    }
+
+    .reveal-visible {
+        transform: translateY(0);
     }
 }

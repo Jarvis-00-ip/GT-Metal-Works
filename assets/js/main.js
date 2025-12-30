@@ -6,6 +6,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     initProjects();
     initCarousels();
+    initScrollAnimations();
 });
 
 // Wait for partials to be injected
@@ -236,4 +237,28 @@ function initThemeToggle() {
             updateIcons(isLight);
         });
     });
+}
+
+/**
+ * SCROLL REVEAL ANIMATION
+ * Simple IntersectionObserver for fade-in elements
+ */
+function initScrollAnimations() {
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15 // Changed slightly over 0.2 for better mobile trigger
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('reveal-visible');
+                observer.unobserve(entry.target); // Run once
+            }
+        });
+    }, observerOptions);
+
+    const revealElements = document.querySelectorAll('.reveal-left, .reveal-right');
+    revealElements.forEach(el => observer.observe(el));
 }
