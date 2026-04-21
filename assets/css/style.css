@@ -228,7 +228,7 @@ header {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../img/ferrari.jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../img/ferrari.webp') no-repeat center center/cover;
     background-attachment: fixed;
     display: flex;
     align-items: center;
@@ -333,7 +333,7 @@ header {
 }
 
 .split-image {
-    background: url('../img/blocco motore2.jpg') no-repeat center center/cover;
+    background: url('../img/blocco motore2.webp') no-repeat center center/cover;
     min-height: 400px;
 }
 
