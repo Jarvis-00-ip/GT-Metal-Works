@@ -4,22 +4,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contatti | G.T. Metalworks</title>
+    <title>Contatti | Racing & Classic</title>
     <link rel="stylesheet" href="../../assets/css/styles.css">
     <style>
+        .form-group {
+            position: relative;
+            margin-bottom: 24px;
+        }
+
         .contact-input {
             width: 100%;
-            background: var(--bg-dark);
-            border: 1px solid var(--border-subtle);
-            padding: 12px;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 12px 0;
             color: var(--text-white);
-            margin-bottom: 16px;
-            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            transition: all 0.3s ease;
         }
 
         .contact-input:focus {
-            border-color: var(--accent-red);
+            border-bottom-color: var(--accent-red);
             outline: none;
+            box-shadow: 0 1px 0 0 var(--accent-red);
+        }
+
+        .contact-label {
+            position: absolute;
+            top: 12px;
+            left: 0;
+            color: var(--text-muted);
+            font-size: 1rem;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-input:focus ~ .contact-label,
+        .contact-input:valid ~ .contact-label {
+            top: -16px;
+            font-size: 0.8rem;
+            color: var(--accent-red);
+        }
+        
+        .contact-card {
+            background: rgba(10, 10, 10, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-top: 4px solid var(--accent-red);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
     </style>
 </head>
@@ -53,7 +86,7 @@
                 <h4 class="text-white">Recapiti</h4>
                 <p class="text-body" style="margin-bottom: 20px;">
                     Telefono: <a href="tel:+39059123456" class="text-accent">+39 059 123456</a><br>
-                    Email: <a href="mailto:info@gtmetalworks.it" class="text-accent">info@gtmetalworks.it</a>
+                    Email: <a href="mailto:info@racingandclassic.it" class="text-accent">info@racingandclassic.it</a>
                 </p>
 
                 <h4 class="text-white">Orari</h4>
@@ -71,7 +104,7 @@
                         style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background-image: radial-gradient(circle, #333 1px, transparent 1px); background-size: 20px 20px;">
                         <div style="text-align: center;">
                             <span style="font-size: 2rem; color: var(--accent-red);">📍</span>
-                            <div style="font-weight: bold; margin-top: 8px;">g.t.metalworks – Officina meccanica</div>
+                            <div style="font-weight: bold; margin-top: 8px;">Racing & Classic – Officina meccanica</div>
                             <div style="font-size: 0.8rem; color: var(--text-muted);">Lat: 44.571384, Lon: 8.952414
                             </div>
                         </div>
@@ -80,33 +113,40 @@
             </div>
 
             <!-- Form -->
-            <div class="card" style="border-top: 4px solid var(--accent-red);">
-                <h3 style="margin-bottom: 24px;">Richiedi un Preventivo</h3>
+            <div class="contact-card">
+                <h3 style="margin-bottom: 30px;">Richiedi un Preventivo</h3>
                 <form id="contact-form" action="https://formspree.io/f/mdaoyopb" method="POST">
-                    <label class="text-white" style="font-size: 0.9rem; display: block; margin-bottom: 6px;">Nome
-                        Completo</label>
-                    <input type="text" class="contact-input" name="name" required>
+                    
+                    <div class="form-group">
+                        <input type="text" class="contact-input" name="name" required>
+                        <label class="contact-label">Nome Completo</label>
+                    </div>
 
-                    <label class="text-white"
-                        style="font-size: 0.9rem; display: block; margin-bottom: 6px;">Email</label>
-                    <input type="email" class="contact-input" name="email" required>
+                    <div class="form-group">
+                        <input type="email" class="contact-input" name="email" required>
+                        <label class="contact-label">Email</label>
+                    </div>
 
-                    <label class="text-white"
-                        style="font-size: 0.9rem; display: block; margin-bottom: 6px;">Telefono</label>
-                    <input type="tel" class="contact-input" name="phone">
+                    <div class="form-group">
+                        <input type="tel" class="contact-input" name="phone">
+                        <label class="contact-label">Telefono</label>
+                    </div>
 
-                    <label class="text-white"
-                        style="font-size: 0.9rem; display: block; margin-bottom: 6px;">Oggetto</label>
-                    <select class="contact-input" name="subject">
-                        <option>Preventivo Restauro</option>
-                        <option>Tuning & Performance</option>
-                        <option>Manutenzione</option>
-                        <option>Altro</option>
-                    </select>
+                    <div class="form-group">
+                        <select class="contact-input" name="subject" required>
+                            <option value="" disabled selected hidden></option>
+                            <option>Preventivo Restauro</option>
+                            <option>Tuning & Performance</option>
+                            <option>Manutenzione</option>
+                            <option>Altro</option>
+                        </select>
+                        <label class="contact-label" style="top: -16px; font-size: 0.8rem; color: var(--text-muted);">Oggetto</label>
+                    </div>
 
-                    <label class="text-white"
-                        style="font-size: 0.9rem; display: block; margin-bottom: 6px;">Messaggio</label>
-                    <textarea class="contact-input" rows="5" name="message" required></textarea>
+                    <div class="form-group">
+                        <textarea class="contact-input" rows="4" name="message" required></textarea>
+                        <label class="contact-label">Messaggio</label>
+                    </div>
 
                     <div style="margin-bottom: 20px;">
                         <input type="checkbox" id="privacy" required>

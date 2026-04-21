@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>G.T. Metalworks | Officina Meccanica di Precisione</title>
+    <title>Racing & Classic | Officina Meccanica di Precisione</title>
     <meta name="description"
         content="Restauro auto d'epoca e tuning performance per auto moderne. Specialisti Ferrari, Lancia, Alfa Romeo.">
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -12,21 +12,37 @@
 
 <body>
 
+    <!-- Page Loader -->
+    <div class="page-loader" id="page-loader">
+        <svg class="loader-svg" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-width="2" opacity="0.2"/>
+            <path class="loader-arch" d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="var(--accent-red)" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+    </div>
     <!-- Header Placeholder -->
     <div id="header-placeholder"></div>
 
     <!-- Hero Section -->
     <section class="hero-fullscreen">
+        <div class="noise-overlay"></div>
         <div class="hero-bg" style="background-image: url('assets/img/ferrari.jpg');"></div>
         <div class="hero-overlay-gradient"></div>
 
         <div class="hero-content">
-            <h1 class="intro-fade-up">G.T. Metalworks</h1>
+            <h1 class="intro-fade-up">Racing & Classic</h1>
             <h2 class="intro-fade-up delay-1">Ingegneria classica. Performance moderna. Zero compromessi.</h2>
             <div class="intro-fade-up delay-2">
                 <a href="pages/contact/contact.html" class="btn btn-primary"
                     style="padding: 16px 40px; font-size: 1rem;">INIZIA UN PROGETTO</a>
             </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <polyline points="19 12 12 19 5 12"></polyline>
+            </svg>
         </div>
     </section>
 
@@ -168,6 +184,30 @@
                 <div class="nav-dot" data-slide="2"></div>
             </div>
             <button class="nav-arrow" id="nav-down">▼</button>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="section">
+        <div class="container">
+            <div class="grid-4 stagger-parent reveal-left">
+                <div class="stat-box">
+                    <span class="stat-number" data-target="250">0</span><span style="font-size: 3.5rem; color: var(--accent-red); font-weight: bold; font-family: 'Oswald', sans-serif;">+</span>
+                    <div class="stat-label">Motori Ricostruiti</div>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number" data-target="30">0</span>
+                    <div class="stat-label">Anni di Esperienza</div>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number" data-target="150">0</span><span style="font-size: 3.5rem; color: var(--accent-red); font-weight: bold; font-family: 'Oswald', sans-serif;">+</span>
+                    <div class="stat-label">Restauri Completi</div>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number" data-target="500">0</span><span style="font-size: 3.5rem; color: var(--accent-red); font-weight: bold; font-family: 'Oswald', sans-serif;">HP</span>
+                    <div class="stat-label">Potenza Media Aggiunta</div>
+                </div>
+            </div>
         </div>
     </section>
 

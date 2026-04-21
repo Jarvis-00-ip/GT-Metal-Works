@@ -1,5 +1,5 @@
 /* 
- * G.T. METALWORKS - GLOBAL STYLES
+ * Racing & Classic - GLOBAL STYLES
  * High-performance, Italian Automotive Design
  */
 
@@ -1564,4 +1564,164 @@ body.light-mode .hero-content .btn-outline:hover {
     .reveal-visible {
         transform: translateY(0);
     }
+}
+
+/* --- RACING & CLASSIC UPGRADES --- */
+
+/* SVG Logo Styling & Hover */
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.brand-svg {
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease;
+}
+.brand-logo:hover .brand-svg {
+    transform: rotate(90deg);
+    filter: drop-shadow(0 0 8px rgba(204, 0, 0, 0.6));
+}
+.brand-logo:hover .brand-text {
+    text-shadow: 0 0 8px rgba(204, 0, 0, 0.4);
+}
+.brand-text {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 1.2rem;
+    transition: text-shadow 0.3s ease;
+}
+
+/* Page Loader */
+.page-loader {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: var(--bg-darker);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.6s var(--ease-out), visibility 0.6s var(--ease-out);
+}
+.page-loader.loaded {
+    opacity: 0;
+    visibility: hidden;
+}
+.loader-svg {
+    width: 80px;
+    height: 80px;
+    animation: spin 2s linear infinite;
+}
+.loader-arch {
+    stroke-dasharray: 120;
+    stroke-dashoffset: 120;
+    animation: dash 1.5s ease-in-out infinite alternate;
+}
+@keyframes spin { 100% { transform: rotate(360deg); } }
+@keyframes dash {
+    0% { stroke-dashoffset: 120; }
+    100% { stroke-dashoffset: 0; }
+}
+
+/* Noise Overlay */
+.noise-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1; /* Below content, above bg */
+    opacity: 0.05;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Visual Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-white);
+    opacity: 0.7;
+    animation: bounce 2s infinite;
+}
+.scroll-indicator span {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+.scroll-indicator svg {
+    width: 24px;
+    height: 24px;
+}
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+    40% { transform: translate(-50%, -10px); }
+    60% { transform: translate(-50%, -5px); }
+}
+
+/* Stagger & Advanced Reveal */
+.stagger-parent > * {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s var(--ease-out);
+}
+.stagger-parent.reveal-visible > * {
+    opacity: 1;
+    transform: translateY(0);
+}
+.stagger-parent.reveal-visible > *:nth-child(1) { transition-delay: 0.1s; }
+.stagger-parent.reveal-visible > *:nth-child(2) { transition-delay: 0.2s; }
+.stagger-parent.reveal-visible > *:nth-child(3) { transition-delay: 0.3s; }
+.stagger-parent.reveal-visible > *:nth-child(4) { transition-delay: 0.4s; }
+
+/* Dynamic Borders */
+.slide-tags span {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    padding: 2px 8px;
+    transition: border-color 0.3s ease, color 0.3s ease;
+}
+.slide-tags span:hover {
+    border-color: var(--accent-red);
+    color: var(--accent-red);
+}
+
+.tech-card {
+    border-left: 3px solid transparent;
+}
+.tech-card:hover {
+    border-left-color: var(--accent-red);
+}
+
+/* Animated Stats Counter */
+.stat-box {
+    text-align: center;
+    padding: 30px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    transition: transform 0.3s ease;
+}
+.stat-box:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-red);
+}
+.stat-number {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--accent-red);
+    margin-bottom: 10px;
+    display: inline-block;
+}
+.stat-label {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-heading);
 }

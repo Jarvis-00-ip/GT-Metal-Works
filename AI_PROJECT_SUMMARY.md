@@ -1,10 +1,10 @@
-# G.T. METALWORKS - PROJECT STRUCTURE & ARCHITECTURE
+# Racing & Classic - PROJECT STRUCTURE & ARCHITECTURE
 > **Generated for AI Context Analysis**
 > **Date:** December 2025
 > **Stack:** Vanilla HTML5, CSS3, JavaScript (ES6)
 
 ## 1. PROJECT OVERVIEW
-**G.T. Metalworks** is a high-end automotive workshop website behaving like a Single Page Application (SPA) feel but built with static files.
+**Racing & Classic** is a high-end automotive workshop website behaving like a Single Page Application (SPA) feel but built with static files.
 - **Aesthetic:** "Dark Premium", Automotive, Minimalist, High-Contrast (Red/Dark Grey).
 - **Core Goal:** Showcase high-end restoration and tuning engineering.
 

@@ -1,5 +1,5 @@
 /**
- * G.T. METALWORKS - SMART NAV SCROLL
+ * Racing & Classic - SMART NAV SCROLL
  * Hides nav on down scroll, reveals on up scroll.
  */
 

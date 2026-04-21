@@ -1,4 +1,4 @@
-# Project Context: G.T. Metalworks
+# Project Context: Racing & Classic
 
 ## Tech Stack
 - **Core**: Vanilla HTML5, CSS3, JavaScript (ES6).

@@ -1,5 +1,15 @@
+
+// Loader Management
+window.addEventListener('load', () => {
+    const loader = document.getElementById('page-loader');
+    if (loader) {
+        loader.classList.add('loaded');
+        setTimeout(() => loader.style.display = 'none', 600);
+    }
+});
+
 /**
- * G.T. METALWORKS - MAIN SCRIPT
+ * Racing & Classic - MAIN SCRIPT
  * Projects Filter & Accessible Modal
  */
 
@@ -7,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initProjects();
     initCarousels();
     initScrollAnimations();
+    initStatsCounters();
 });
 
 // Wait for partials to be injected
@@ -195,7 +206,36 @@ function initCarousels() {
         container.addEventListener("mouseenter", stopAutoPlay);
         container.addEventListener("mouseleave", startAutoPlay);
 
+        
+        // Swipe Logic
+        let startX = 0;
+        let isDragging = false;
+
+        container.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+            stopAutoPlay();
+        }, {passive: true});
+
+        container.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            const currentX = e.touches[0].clientX;
+            const diff = startX - currentX;
+            
+            if (Math.abs(diff) > 50) { // swipe threshold
+                if (diff > 0) nextSlide();
+                else prevSlide();
+                isDragging = false;
+            }
+        }, {passive: true});
+
+        container.addEventListener('touchend', () => {
+            isDragging = false;
+            startAutoPlay();
+        });
+        
         // Initial Start
+
         startAutoPlay();
     });
 }
@@ -247,7 +287,7 @@ function initScrollAnimations() {
     const observerOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.15 // Changed slightly over 0.2 for better mobile trigger
+        threshold: 0.15
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
@@ -259,7 +299,7 @@ function initScrollAnimations() {
         });
     }, observerOptions);
 
-    const revealElements = document.querySelectorAll('.reveal-left, .reveal-right');
+    const revealElements = document.querySelectorAll('.reveal-left, .reveal-right, .stagger-parent');
     revealElements.forEach(el => observer.observe(el));
 }
 
@@ -346,6 +386,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initPartials(rootPath);
     initThemeToggle();
     initScrollAnimations();
+    initStatsCounters();
     initProjectCarousel();
 
     // Defer non-critical logic
@@ -354,3 +395,33 @@ document.addEventListener('DOMContentLoaded', () => {
         initProjectModal();
     }, 100);
 });
+
+
+function initStatsCounters() {
+    const counters = document.querySelectorAll('.stat-number');
+    if (counters.length === 0) return;
+
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = parseInt(entry.target.getAttribute('data-target'));
+                const duration = 2000; // ms
+                const stepTime = Math.abs(Math.floor(duration / target));
+                
+                let current = 0;
+                const timer = setInterval(() => {
+                    current += Math.ceil(target / 50);
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    entry.target.textContent = current;
+                }, stepTime > 10 ? stepTime : 10);
+
+                obs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    counters.forEach(counter => observer.observe(counter));
+}
