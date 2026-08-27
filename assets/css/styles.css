@@ -1581,10 +1581,21 @@ body.light-mode .hero-content .btn-outline:hover {
     gap: 12px;
 }
 .brand-svg {
+    width: 44px;
+    height: 40px;
+    object-fit: contain;
+    /* Artwork is dark line-art on transparent bg; invert for legibility on dark surfaces */
+    filter: invert(1);
     transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease;
 }
+body.light-mode .brand-svg {
+    filter: none;
+}
 .brand-logo:hover .brand-svg {
-    transform: rotate(90deg);
+    transform: rotate(12deg) scale(1.06);
+    filter: invert(1) drop-shadow(0 0 8px rgba(178, 59, 63, 0.55));
+}
+body.light-mode .brand-logo:hover .brand-svg {
     filter: drop-shadow(0 0 8px rgba(178, 59, 63, 0.55));
 }
 .brand-logo:hover .brand-text {
