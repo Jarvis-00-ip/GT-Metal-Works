@@ -6,7 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@300;400;500;700&display=swap');
 
 :root {
-    /* PREMIUM SPORT PALETTE ("Soft Engineering" — Porsche-inspired) */
+    /* PREMIUM SPORT PALETTE — NIGHT (dark graphite + oxblood) */
     --bg-dark: #101214;
     /* Warm graphite, not true black */
     --bg-darker: #0a0b0c;
@@ -22,13 +22,20 @@
     /* Soft warm grey */
     --text-muted: #6c6f75;
 
-    /* Tricolore - Muted & Refined */
+    /* Tricolore - Muted & Refined (fixed, does not shift with theme) */
     --accent-green: #4f7a5e;
     --accent-white: #ece7dd;
+    --flag-red: #b23b3f;
+
+    /* Primary accent - oxblood red at night, swapped to emerald by day below */
     --accent-red: #b23b3f;
-    /* Muted carmine, softer than pure racing red */
     --accent-red-hover: #c65256;
+    /* brighter, for hover states that lighten */
+    --accent-red-active: #8f2f32;
+    /* darker, for hover states that deepen */
+    --accent-red-rgb: 178, 59, 63;
     --accent-gold: #c6a568;
+    --accent-gold-rgb: 198, 165, 104;
     /* Champagne trim accent for premium touches */
 
     /* Engineering Precision */
@@ -59,27 +66,35 @@
     /* Snappy, premium feel */
 }
 
-/* LIGHT MODE OVERRIDES */
+/* LIGHT MODE OVERRIDES — DAY (vintage premium: cream beige + emerald/British Racing Green) */
 body.light-mode {
-    --bg-dark: #f3f1ec;
-    --bg-darker: #e9e6df;
-    --bg-card: #ffffff;
-    --bg-card-hover: #faf9f6;
+    --bg-dark: #f2e9d8;
+    --bg-darker: #e9dcc0;
+    --bg-card: #fbf6ec;
+    --bg-card-hover: #f4ead6;
 
-    --text-white: #17191c;
-    --text-heading: #17191c;
-    --text-body: #55575c;
-    --text-muted: #7a7c81;
+    --text-white: #241f18;
+    --text-heading: #241f18;
+    --text-body: #5b5346;
+    --text-muted: #8a7f6c;
 
-    --border-subtle: rgba(23, 25, 28, 0.08);
-    --shadow-soft: 0 10px 40px rgba(23, 25, 28, 0.08);
-    --shadow-hover: 0 20px 50px rgba(23, 25, 28, 0.12);
+    /* Primary accent by day: emerald / British Racing Green, replaces oxblood red */
+    --accent-red: #1f5c45;
+    --accent-red-hover: #2c7355;
+    --accent-red-active: #163f30;
+    --accent-red-rgb: 31, 92, 69;
+    --accent-gold: #a9863f;
+    --accent-gold-rgb: 169, 134, 63;
+
+    --border-subtle: rgba(36, 31, 24, 0.10);
+    --shadow-soft: 0 10px 40px rgba(90, 70, 40, 0.10);
+    --shadow-hover: 0 20px 50px rgba(90, 70, 40, 0.16);
 }
 
 /* Light Mode Specifics */
 body.light-mode .main-nav {
-    background: rgba(255, 255, 255, 0.95);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background: rgba(251, 246, 236, 0.95);
+    border-bottom: 1px solid rgba(36, 31, 24, 0.1);
 }
 
 body.light-mode .brand,
@@ -528,8 +543,8 @@ h3 {
 }
 
 .btn-primary:hover {
-    background: #8f2f32;
-    border-color: #8f2f32;
+    background: var(--accent-red-active);
+    border-color: var(--accent-red-active);
 }
 
 /* Header CTA Specifics */
@@ -541,9 +556,9 @@ h3 {
     font-weight: 600;
     padding: 10px 24px;
     /* distinct sizing */
-    box-shadow: 0 4px 15px rgba(178, 59, 63, 0.3);
+    box-shadow: 0 4px 15px rgba(var(--accent-red-rgb), 0.3);
     /* Distinct separation/glow */
-    border: 1px solid rgba(198, 165, 104, 0.35);
+    border: 1px solid rgba(var(--accent-gold-rgb), 0.35);
     /* Subtle champagne trim edge */
     text-transform: uppercase;
     font-size: 0.85rem;
@@ -553,13 +568,13 @@ h3 {
 .header-cta:hover {
     background: var(--accent-red-hover);
     /* Slightly brighter on hover */
-    box-shadow: 0 6px 20px rgba(178, 59, 63, 0.4);
+    box-shadow: 0 6px 20px rgba(var(--accent-red-rgb), 0.4);
     transform: translateY(-1px);
 }
 
 .header-cta:active {
     transform: translateY(1px);
-    box-shadow: 0 2px 10px rgba(178, 59, 63, 0.2);
+    box-shadow: 0 2px 10px rgba(var(--accent-red-rgb), 0.2);
 }
 
 .btn-outline {
@@ -1052,7 +1067,7 @@ body.light-mode .hero-content .btn-outline:hover {
     left: 0;
     width: 100%;
     height: 4px;
-    background: linear-gradient(90deg, var(--accent-green) 33.33%, var(--accent-white) 33.33%, var(--accent-white) 66.66%, var(--accent-red) 66.66%);
+    background: linear-gradient(90deg, var(--accent-green) 33.33%, var(--accent-white) 33.33%, var(--accent-white) 66.66%, var(--flag-red) 66.66%);
 }
 
 /* CAROUSEL */
@@ -1593,13 +1608,13 @@ body.light-mode .brand-svg {
 }
 .brand-logo:hover .brand-svg {
     transform: rotate(12deg) scale(1.06);
-    filter: invert(1) drop-shadow(0 0 8px rgba(178, 59, 63, 0.55));
+    filter: invert(1) drop-shadow(0 0 8px rgba(var(--accent-red-rgb), 0.55));
 }
 body.light-mode .brand-logo:hover .brand-svg {
-    filter: drop-shadow(0 0 8px rgba(178, 59, 63, 0.55));
+    filter: drop-shadow(0 0 8px rgba(var(--accent-red-rgb), 0.55));
 }
 .brand-logo:hover .brand-text {
-    text-shadow: 0 0 8px rgba(178, 59, 63, 0.35);
+    text-shadow: 0 0 8px rgba(var(--accent-red-rgb), 0.35);
 }
 .brand-text {
     font-family: 'Oswald', sans-serif;

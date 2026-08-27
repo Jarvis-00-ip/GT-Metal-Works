@@ -364,27 +364,12 @@ function initProjectCarousel() {
     }
 }
 
-// Update initialization
+// NOTE: initPartials() is intentionally NOT called here. Every page already
+// calls it inline with its own correct root path right before its closing
+// </body> tag; calling it a second time here raced against that call and
+// intermittently broke the header/footer injection (and with it, the
+// theme-toggle listener, since it's only attached after partials load).
 document.addEventListener('DOMContentLoaded', () => {
-    // Determine path depth for partials
-    const depth = document.location.pathname.split('/').length - 2;
-    // This is unreliable across environments unless we know base. 
-    // Better: Check if we are in 'pages/projects' etc.
-
-    let rootPath = './';
-    if (document.location.pathname.includes('/pages/projects/')) {
-        rootPath = '../../';
-    } else if (document.location.pathname.includes('/pages/services/')) {
-        rootPath = '../../';
-    } else if (document.location.pathname.includes('/pages/')) {
-        rootPath = '../';
-    }
-
-    // Safest fallback if explicitly set by file
-    if (window.PROJECT_ROOT) rootPath = window.PROJECT_ROOT;
-
-    initPartials(rootPath);
-    initThemeToggle();
     initScrollAnimations();
     initStatsCounters();
     initProjectCarousel();
@@ -392,7 +377,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Defer non-critical logic
     setTimeout(() => {
         initCarousels();
-        initProjectModal();
     }, 100);
 });
 
