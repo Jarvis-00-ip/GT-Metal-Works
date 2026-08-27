@@ -6,34 +6,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@300;400;500;700&display=swap');
 
 :root {
-    /* HIGH-END AUTOMOTIVE PALETTE ("Dark Engineering") */
-    --bg-dark: #050505;
-    /* Deepest Black */
-    --bg-darker: #000000;
-    /* True Black */
-    --bg-card: #0a0a0a;
-    /* Very dark grey */
-    --bg-card-hover: #111111;
+    /* PREMIUM SPORT PALETTE ("Soft Engineering" — Porsche-inspired) */
+    --bg-dark: #101214;
+    /* Warm graphite, not true black */
+    --bg-darker: #0a0b0c;
+    /* Deepest graphite */
+    --bg-card: #17191c;
+    /* Soft charcoal */
+    --bg-card-hover: #1e2124;
 
-    --text-white: #ffffff;
-    --text-heading: #ffffff;
-    --text-body: #b0b0b0;
-    /* Cool grey */
-    --text-muted: #666666;
+    --text-white: #f2efe9;
+    /* Warm ivory instead of stark white */
+    --text-heading: #f2efe9;
+    --text-body: #a6a8ad;
+    /* Soft warm grey */
+    --text-muted: #6c6f75;
 
-    /* Tricolore - Subtle & Sharp */
-    --accent-green: #009246;
-    --accent-white: #f1f2f1;
-    --accent-red: #cc0000;
+    /* Tricolore - Muted & Refined */
+    --accent-green: #4f7a5e;
+    --accent-white: #ece7dd;
+    --accent-red: #b23b3f;
+    /* Muted carmine, softer than pure racing red */
+    --accent-red-hover: #c65256;
+    --accent-gold: #c6a568;
+    /* Champagne trim accent for premium touches */
 
     /* Engineering Precision */
-    --border-subtle: rgba(255, 255, 255, 0.08);
-    /* Fainter, sharper lines */
-    --border-focus: rgba(255, 255, 255, 0.4);
+    --border-subtle: rgba(242, 239, 233, 0.08);
+    /* Fainter, warm-tinted lines */
+    --border-focus: rgba(242, 239, 233, 0.35);
 
-    /* Shadows? Minimal to none. Flat & Clean. */
+    /* Shadows - Soft & Premium */
     --shadow-soft: none;
-    --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.7);
+    --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.55);
 
     /* Layout */
     --nav-height: 90px;
@@ -56,19 +61,19 @@
 
 /* LIGHT MODE OVERRIDES */
 body.light-mode {
-    --bg-dark: #f0f2f5;
-    --bg-darker: #e4e6eb;
+    --bg-dark: #f3f1ec;
+    --bg-darker: #e9e6df;
     --bg-card: #ffffff;
-    --bg-card-hover: #f7f8fa;
+    --bg-card-hover: #faf9f6;
 
-    --text-white: #1a1a1a;
-    --text-heading: #1a1a1a;
-    --text-body: #4a4b50;
-    --text-muted: #6e7076;
+    --text-white: #17191c;
+    --text-heading: #17191c;
+    --text-body: #55575c;
+    --text-muted: #7a7c81;
 
-    --border-subtle: rgba(0, 0, 0, 0.1);
-    --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.1);
-    --shadow-hover: 0 20px 50px rgba(0, 0, 0, 0.15);
+    --border-subtle: rgba(23, 25, 28, 0.08);
+    --shadow-soft: 0 10px 40px rgba(23, 25, 28, 0.08);
+    --shadow-hover: 0 20px 50px rgba(23, 25, 28, 0.12);
 }
 
 /* Light Mode Specifics */
@@ -523,8 +528,8 @@ h3 {
 }
 
 .btn-primary:hover {
-    background: #a81c26;
-    border-color: #a81c26;
+    background: #8f2f32;
+    border-color: #8f2f32;
 }
 
 /* Header CTA Specifics */
@@ -536,24 +541,25 @@ h3 {
     font-weight: 600;
     padding: 10px 24px;
     /* distinct sizing */
-    box-shadow: 0 4px 15px rgba(206, 43, 55, 0.3);
+    box-shadow: 0 4px 15px rgba(178, 59, 63, 0.3);
     /* Distinct separation/glow */
-    border: none;
+    border: 1px solid rgba(198, 165, 104, 0.35);
+    /* Subtle champagne trim edge */
     text-transform: uppercase;
     font-size: 0.85rem;
     letter-spacing: 0.05em;
 }
 
 .header-cta:hover {
-    background: #e63240;
+    background: var(--accent-red-hover);
     /* Slightly brighter on hover */
-    box-shadow: 0 6px 20px rgba(206, 43, 55, 0.4);
+    box-shadow: 0 6px 20px rgba(178, 59, 63, 0.4);
     transform: translateY(-1px);
 }
 
 .header-cta:active {
     transform: translateY(1px);
-    box-shadow: 0 2px 10px rgba(206, 43, 55, 0.2);
+    box-shadow: 0 2px 10px rgba(178, 59, 63, 0.2);
 }
 
 .btn-outline {
@@ -1579,10 +1585,10 @@ body.light-mode .hero-content .btn-outline:hover {
 }
 .brand-logo:hover .brand-svg {
     transform: rotate(90deg);
-    filter: drop-shadow(0 0 8px rgba(204, 0, 0, 0.6));
+    filter: drop-shadow(0 0 8px rgba(178, 59, 63, 0.55));
 }
 .brand-logo:hover .brand-text {
-    text-shadow: 0 0 8px rgba(204, 0, 0, 0.4);
+    text-shadow: 0 0 8px rgba(178, 59, 63, 0.35);
 }
 .brand-text {
     font-family: 'Oswald', sans-serif;

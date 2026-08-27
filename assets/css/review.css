@@ -59,7 +59,7 @@
 .review-form textarea {
     width: 100%;
     padding: 15px;
-    background: #0a0a0a;
+    background: #17191c;
     border: 1px solid var(--border-color);
     border-radius: 4px;
     color: var(--text-white);
@@ -72,7 +72,7 @@
 .review-form textarea:focus {
     border-color: var(--accent-red);
     outline: none;
-    background: #151515;
+    background: #1e2124;
 }
 
 .review-form textarea {
@@ -87,14 +87,14 @@
     border-radius: 4px;
     padding: 30px;
     text-align: center;
-    background: #0a0a0a;
+    background: #17191c;
     transition: var(--transition);
     cursor: pointer;
 }
 
 .file-upload-wrapper:hover {
     border-color: var(--text-muted);
-    background: #111;
+    background: #1e2124;
 }
 
 .file-upload-wrapper input[type="file"] {

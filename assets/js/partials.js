@@ -7,7 +7,16 @@
 const NAV_HTML = `
     <nav class="main-nav nav-visible" id="main-nav">
         <div class="container nav-container">
-            <a href="{{root}}index.html" class="brand">Racing & Classic</a>
+            <a href="{{root}}index.html" class="brand brand-logo">
+                <svg class="brand-svg" width="36" height="36" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="44" fill="none" stroke="var(--accent-gold)" stroke-width="1.5" opacity="0.85"/>
+                    <circle cx="50" cy="50" r="3.5" fill="var(--accent-gold)"/>
+                    <line x1="50" y1="10" x2="50" y2="25" stroke="currentColor" stroke-width="2" opacity="0.55"/>
+                    <line x1="50" y1="75" x2="50" y2="90" stroke="currentColor" stroke-width="2" opacity="0.55"/>
+                    <path d="M 13 58 A 39 39 0 0 0 87 58" fill="none" stroke="var(--accent-red)" stroke-width="5" stroke-linecap="round"/>
+                </svg>
+                <span class="brand-text">Racing <span style="color: var(--accent-red);">&amp;</span> Classic</span>
+            </a>
             
             <!-- Desktop Menu -->
             <ul class="nav-menu">

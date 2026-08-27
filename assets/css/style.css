@@ -1,19 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
 :root {
-    --bg-dark: #0f0f0f;
-    --bg-card: #1a1a1a;
-    --bg-card-hover: #222222;
-    --text-white: #ffffff;
-    --text-muted: #b0b0b0;
-    --accent-red: #d90429;
-    --accent-red-hover: #ef233c;
-    --border-color: #333333;
-    
-    /* Tricolore */
-    --it-green: #009246;
-    --it-white: #f1f2f1;
-    --it-red: #ce2b37;
+    --bg-dark: #101214;
+    --bg-card: #17191c;
+    --bg-card-hover: #1e2124;
+    --text-white: #f2efe9;
+    --text-muted: #a6a8ad;
+    --accent-red: #b23b3f;
+    --accent-red-hover: #c65256;
+    --accent-gold: #c6a568;
+    --border-color: #2a2c30;
+
+    /* Tricolore - Muted & Refined */
+    --it-green: #4f7a5e;
+    --it-white: #ece7dd;
+    --it-red: #b23b3f;
 
     --font-main: 'Inter', sans-serif;
     --max-width: 1200px;
@@ -673,7 +674,7 @@ header {
 
 /* Footer */
 footer {
-    background: #0a0a0a;
+    background: var(--bg-darker, #0a0b0c);
     border-top: 1px solid var(--border-color);
     padding: 80px 0 20px;
     position: relative;
